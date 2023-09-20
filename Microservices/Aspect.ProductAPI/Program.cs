@@ -11,7 +11,8 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddDataContextService(builder.Configuration);
-
+builder.Services.AddScopedServices();
+builder.Services.AddAutoMapperService();
 
 
 
