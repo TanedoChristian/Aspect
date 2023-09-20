@@ -1,6 +1,15 @@
-﻿namespace Aspect.ProductAPI.Services.Application
+﻿using Aspect.ProductAPI.Repository.ProductRepository;
+
+namespace Aspect.ProductAPI.Services.Application
 {
-    public class ScopedService
+    public static class ScopedService
     {
+        public static IServiceCollection AddScopedServices(this IServiceCollection services)
+        {
+
+            services.AddScoped<IProductRepository, ProductRepository>();
+
+            return services;
+        }
     }
 }
