@@ -1,6 +1,8 @@
-﻿namespace Aspect.ProductAPI.Repository.ProductRepository
+﻿using Aspect.ProductAPI.Entities;
+
+namespace Aspect.ProductAPI.Repository.ProductRepository
 {
-    public interface IProductRepository
+    public interface IProductRepository : IBaseRepository<Product>
     {
     }
 }
