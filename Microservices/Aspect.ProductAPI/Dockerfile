@@ -7,7 +7,12 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Aspect.ProductAPI.csproj", "."]
+
+
+
+
 RUN dotnet restore "./Aspect.ProductAPI.csproj"
+
 COPY . .
 WORKDIR "/src/."
 RUN dotnet build "Aspect.ProductAPI.csproj" -c Release -o /app/build
@@ -18,4 +23,8 @@ RUN dotnet publish "Aspect.ProductAPI.csproj" -c Release -o /app/publish /p:UseA
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
+
+
+
 ENTRYPOINT ["dotnet", "Aspect.ProductAPI.dll"]
