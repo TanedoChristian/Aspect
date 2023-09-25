@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "b++9e0yL/wxGKjXH/vCwNZ7oO4Vu/kve38prrnnzoCZKaQA1DYYpw48NpC6EhVkFL/ga6StKlikYSj7g7gtDWQ==",
+  "dgSpecHash": "VBLKwpkWQXYDPoNYMFKSHpnqb2/RVRiTBWhk4Sr/p5MPmYZcLiV90L0lKMUcuzKo8tkJYx65YNtcLVPeT+QINw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Full Scale\\Documents\\Projects\\Sync\\Microservices\\UserApi\\UserApi.csproj",
+  "projectFilePath": "C:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\UserApi\\UserApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Full Scale\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Full Scale\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

@@ -54,3 +54,16 @@ C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\Aspect.ProductAPI\ob
 C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\Aspect.ProductAPI\obj\Debug\net6.0\Aspect.ProductAPI.pdb
 C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\Aspect.ProductAPI\obj\Debug\net6.0\Aspect.ProductAPI.genruntimeconfig.cache
 C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\Aspect.ProductAPI\obj\Debug\net6.0\ref\Aspect.ProductAPI.dll
+C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\Aspect.ProductAPI\bin\Debug\net6.0\AWSSDK.Core.dll
+C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\Aspect.ProductAPI\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
+C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\Aspect.ProductAPI\bin\Debug\net6.0\DnsClient.dll
+C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\Aspect.ProductAPI\bin\Debug\net6.0\MongoDB.Bson.dll
+C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\Aspect.ProductAPI\bin\Debug\net6.0\MongoDB.Driver.dll
+C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\Aspect.ProductAPI\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\Aspect.ProductAPI\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\Aspect.ProductAPI\bin\Debug\net6.0\SharpCompress.dll
+C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\Aspect.ProductAPI\bin\Debug\net6.0\Snappier.dll
+C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\Aspect.ProductAPI\bin\Debug\net6.0\ZstdSharp.dll
+C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\Aspect.ProductAPI\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\Aspect.ProductAPI\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\Aspect.ProductAPI\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll

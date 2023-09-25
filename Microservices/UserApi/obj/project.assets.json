@@ -1737,11 +1737,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Full Scale\\Documents\\Projects\\Sync\\Microservices\\UserApi\\UserApi.csproj",
+      "projectUniqueName": "C:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\UserApi\\UserApi.csproj",
       "projectName": "UserApi",
-      "projectPath": "C:\\Users\\Full Scale\\Documents\\Projects\\Sync\\Microservices\\UserApi\\UserApi.csproj",
+      "projectPath": "C:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\UserApi\\UserApi.csproj",
       "packagesPath": "C:\\Users\\Full Scale\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Full Scale\\Documents\\Projects\\Sync\\Microservices\\UserApi\\obj\\",
+      "outputPath": "C:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\UserApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Full Scale\\AppData\\Roaming\\NuGet\\NuGet.Config",

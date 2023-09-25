@@ -10,7 +10,6 @@ COPY ["Aspect.ProductAPI.csproj", "."]
 
 
 
-
 RUN dotnet restore "./Aspect.ProductAPI.csproj"
 
 COPY . .
