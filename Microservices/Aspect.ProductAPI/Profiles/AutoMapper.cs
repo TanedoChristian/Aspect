@@ -9,6 +9,7 @@ namespace Aspect.ProductAPI.Profiles
         public AutoMapper()
         {
             CreateMap<ProductDto, Product>().ReverseMap();
+            CreateMap<PhotoDto, ProductPhoto>().ReverseMap();
         }
     }
 }

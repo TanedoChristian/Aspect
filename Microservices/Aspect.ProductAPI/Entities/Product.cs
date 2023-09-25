@@ -11,6 +11,6 @@
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        public List<ProductPhoto> Photos { get; set; }
+        public List<ProductPhoto> Photos { get; set; } = new();
     }
 }

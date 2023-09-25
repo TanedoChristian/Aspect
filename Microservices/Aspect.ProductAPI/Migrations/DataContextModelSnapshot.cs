@@ -71,7 +71,7 @@ namespace Aspect.ProductAPI.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductPhoto");
+                    b.ToTable("Photos");
                 });
 
             modelBuilder.Entity("Aspect.ProductAPI.Entities.ProductPhoto", b =>

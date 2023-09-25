@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Aspect.ProductAPI.Services.Application;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +15,8 @@ builder.Services.AddDataContextService(builder.Configuration);
 builder.Services.AddScopedServices();
 builder.Services.AddAutoMapperService();
 
-
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 
 var app = builder.Build();
@@ -25,6 +27,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+
 
 app.UseAuthorization();
 

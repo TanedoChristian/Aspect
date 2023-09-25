@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Aspect.ProductAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230921092028_InitialCreateProductPhoto")]
-    partial class InitialCreateProductPhoto
+    [Migration("20230925115300_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,7 +74,7 @@ namespace Aspect.ProductAPI.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductPhoto");
+                    b.ToTable("Photos");
                 });
 
             modelBuilder.Entity("Aspect.ProductAPI.Entities.ProductPhoto", b =>

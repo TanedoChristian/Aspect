@@ -25,9 +25,12 @@ namespace Aspect.ProductAPI.Repository.ProductRepository
         }
 
         public async Task<IEnumerable<Product>> GetAll()
-        {
-            return await _context.Products.ToListAsync();
-        }
+{
+    return await _context.Products
+        .Include(p => p.Photos)  // Include the Photos collection
+        .ToListAsync();
+}
+
 
         public async Task<Product> GetById(int id)
         {

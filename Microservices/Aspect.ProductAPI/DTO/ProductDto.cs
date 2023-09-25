@@ -1,4 +1,5 @@
-﻿using Aspect.ProductAPI.Entities;
+﻿using System.Text.Json.Serialization;
+using Aspect.ProductAPI.Entities;
 
 namespace Aspect.ProductAPI.DTO
 {
