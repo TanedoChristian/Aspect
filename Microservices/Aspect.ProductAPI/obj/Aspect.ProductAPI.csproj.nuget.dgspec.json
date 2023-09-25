@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\Aspect.ProductAPI\\Aspect.ProductAPI.csproj": {}
+    "c:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\Aspect.ProductAPI\\Aspect.ProductAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\Aspect.ProductAPI\\Aspect.ProductAPI.csproj": {
+    "c:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\Aspect.ProductAPI\\Aspect.ProductAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\Aspect.ProductAPI\\Aspect.ProductAPI.csproj",
+        "projectUniqueName": "c:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\Aspect.ProductAPI\\Aspect.ProductAPI.csproj",
         "projectName": "Aspect.ProductAPI",
-        "projectPath": "C:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\Aspect.ProductAPI\\Aspect.ProductAPI.csproj",
+        "projectPath": "c:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\Aspect.ProductAPI\\Aspect.ProductAPI.csproj",
         "packagesPath": "C:\\Users\\Full Scale\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\Aspect.ProductAPI\\obj\\",
+        "outputPath": "c:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\Aspect.ProductAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Full Scale\\AppData\\Roaming\\NuGet\\NuGet.Config",

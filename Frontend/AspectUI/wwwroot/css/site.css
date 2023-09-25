@@ -10,3 +10,14 @@
 }
 
 
+.layout {
+    border: 2px solid red;
+}
+
+.category li {
+    border: 2px solid transparent;
+}
+
+.category li:hover {
+    border-bottom: 2px solid black;
+}

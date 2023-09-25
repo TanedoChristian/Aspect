@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RTIXTSpp/HhDmCLtpSRTmZKvphijyJqAWIczSOkKrL9XBXj+5uZWTExGPPXPtqfr19x2ISdgN9TZDVqm+h3ODA==",
+  "dgSpecHash": "rqcCQi3ku63DbQA/gi8nbtTMCwZK76iFf/hN/a7gumSClbk0lY1XXMe/57uXgg98dlSDz4i4jvgkdeI9Z0OT5w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\Aspect.ProductAPI\\Aspect.ProductAPI.csproj",
+  "projectFilePath": "c:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\Aspect.ProductAPI\\Aspect.ProductAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Full Scale\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Full Scale\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
