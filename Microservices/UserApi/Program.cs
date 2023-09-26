@@ -13,6 +13,14 @@ builder.Services.AddDataContextServices(builder.Configuration);
 builder.Services.AddScopedServices();
 builder.Services.AddAutoMapperServices();
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+    });
+});
+
 
 
 var app = builder.Build();
@@ -23,6 +31,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors();
 
 app.UseAuthorization();
 
