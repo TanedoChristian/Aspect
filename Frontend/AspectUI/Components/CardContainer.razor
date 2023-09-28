@@ -1,4 +1,15 @@
-﻿<h3>CardContainer</h3>
+﻿<div class="flex gap-10 p-5  w-full justify-center flex-wrap">
+
+ 
+
+ @foreach(var product in @Products)
+    {
+        <Card Name=@product.Name Category=@product.Category Id=@product.Id Quantity=@product.Quantity Price=@product.Price Photos=@product.Photos />
+    }
+
+  
+ 
+</div>
 
 @code {
 

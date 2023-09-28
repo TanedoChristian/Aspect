@@ -827,3 +827,8 @@ C:\Users\Full Scale\Documents\Projects\Aspect\Frontend\AspectUI\obj\Debug\net6.0
 C:\Users\Full Scale\Documents\Projects\Aspect\Frontend\AspectUI\obj\Debug\net6.0\build-gz\Q5hOz9Pq.gz
 C:\Users\Full Scale\Documents\Projects\Aspect\Frontend\AspectUI\obj\Debug\net6.0\build-gz\lGQVPKLH.gz
 C:\Users\Full Scale\Documents\Projects\Aspect\Frontend\AspectUI\obj\Debug\net6.0\build-gz\qRPvkhSy.gz
+C:\Users\Full Scale\Documents\Projects\Aspect\Frontend\AspectUI\bin\Debug\net6.0\libman.json
+C:\Users\Full Scale\Documents\Projects\Aspect\Frontend\AspectUI\bin\Debug\net6.0\wwwroot\_framework\Blazored.LocalStorage.dll
+C:\Users\Full Scale\Documents\Projects\Aspect\Frontend\AspectUI\bin\Debug\net6.0\wwwroot\_framework\Blazored.LocalStorage.dll.gz
+C:\Users\Full Scale\Documents\Projects\Aspect\Frontend\AspectUI\bin\Debug\net6.0\Blazored.LocalStorage.dll
+C:\Users\Full Scale\Documents\Projects\Aspect\Frontend\AspectUI\obj\Debug\net6.0\build-gz\V72EANWi.gz

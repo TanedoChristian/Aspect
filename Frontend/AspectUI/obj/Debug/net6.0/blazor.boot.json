@@ -7,6 +7,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
+      "Blazored.LocalStorage.dll": "sha256-w2vMoqbIgF9UyzKqfDFXjqgg7IsGRHDvzb6DcyaPW6s=",
       "Microsoft.AspNetCore.Authorization.dll": "sha256-u3YI1z9+WYkzMnYZVJY7FxCR+SwmvycsqrxEJe\/+KdQ=",
       "Microsoft.AspNetCore.Components.dll": "sha256-SRGbF6QFgLGIr1L82S0pwdZ676zDEsdybsBfKWb\/Vzw=",
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-2Gr7ehRgVhAev11Ntgsx81qFKG1hVez4c8Lqxq0mc68=",
@@ -198,13 +199,13 @@
       "mscorlib.dll": "sha256-ZQiPq7CHB7vwsbgiGeI63xqAYmfnZVwKnCDxwIIfh68=",
       "netstandard.dll": "sha256-OUZMjYvE6WNC75Ypitp3ukl0+FlDbSW+OYEIsU7XlgQ=",
       "System.Private.CoreLib.dll": "sha256-uJANsJB4HA9iyaKf1ryCSbtypfL2uQZWxXKIn0Fz5+c=",
-      "AspectUI.dll": "sha256-W4TJcfVaLUf3RuFekVKd\/xTV4ikD+BZ38U6YmmIWG6w="
+      "AspectUI.dll": "sha256-\/pVybnY41z758mZ1hc0z9YJj+qyXxSgYtnGX3MqVT58="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "AspectUI.pdb": "sha256-BvNQKe6Zj\/36mQY3w43x7ad8k+vV3g6z7IHxTk2gozc="
+      "AspectUI.pdb": "sha256-C9pNqEBHOq+b\/LLtFF0RvxUBEU1b\/ikntZdwBA2L\/TE="
     },
     "runtime": {
       "dotnet.6.0.21.gdrsdwu1c6.js": "sha256-0OV6gibFzyVtG7NXEj8a6vG3u8Cbzv4l9kkEathZjQ8=",

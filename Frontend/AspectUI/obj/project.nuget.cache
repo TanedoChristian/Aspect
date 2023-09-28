@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rOqpu7H0DVWlbL/LcFLxe9tyf0eknCOZ6rOMMZ+g3IlGcAo7UY3Bd68+s8fTf9t8NyrjmgNJG9q62TaWBT5xuA==",
+  "dgSpecHash": "2W1MDFryOKujLiXNfaXVe4/lnX4z258mJKsKiNGLw2W/q93AxVbQjNC22GeVX2BD3VfzFSjcvrHhwPEqKBLS9g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Frontend\\AspectUI\\AspectUI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Full Scale\\.nuget\\packages\\blazored.localstorage\\4.4.0\\blazored.localstorage.4.4.0.nupkg.sha512",
     "C:\\Users\\Full Scale\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.20\\microsoft.aspnetcore.authorization.6.0.20.nupkg.sha512",
     "C:\\Users\\Full Scale\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.20\\microsoft.aspnetcore.components.6.0.20.nupkg.sha512",
     "C:\\Users\\Full Scale\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.20\\microsoft.aspnetcore.components.analyzers.6.0.20.nupkg.sha512",
