@@ -1,0 +1,73 @@
+﻿@page "/cart"
+
+
+<div>
+    <Header />
+
+    <div class="w-full ">
+        <div class="p-5">
+            <h1 class="text-3xl font-bold">My Cart </h1>
+
+            <div class="w-full flex gap-2 p-5">
+                <div class="w-[50%] flex flex-col gap-3">
+
+                    @foreach(var cart in Carts)
+                    {
+                        <div class="flex gap-3  border border-gray-100 rounded-xl shadow-md ">
+                            <div class="">
+                                <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-01.jpg"
+                                     class="w-[250px]" />
+                            </div>
+                            <div class="flex flex-col justify-between p-5">
+                                <div>
+                                    <h2 class="font-semibold text-3xl">
+                                        @cart.ProductName
+                                    </h2>
+                                    <p class="font-semibold">Php. @cart.Price .00</p>
+                                </div>
+
+                                <div>
+                                    
+                                    <p class="font-semibold">Quantity @cart.Quantity</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    
+                </div>
+                <div class="w-[30%]  p-5 bg-[#f9fafb] max-h-[5000px] rounded-md">
+                    <div>
+                        <h1 class="text-3xl font-bold">Total Amount </h1>
+                        <div class="m-5 p-3 flex justify-between border-b border-gray-300 ">
+                            <h2 class="text-gray-500 font-semibold"> Subtotal </h2>
+                            <p class="font-semibold"> Php @SubTotal .00</p>
+                        </div>
+
+                        <div class="m-5 p-3 flex justify-between border-b border-gray-300">
+                            <h2 class="text-gray-500 font-semibold">Shipping Fee</h2>
+                            <p class="font-semibold">Php 99.00</p>
+                        </div>
+
+                        <div class="m-5 p-3 flex justify-between">
+                            <h2 class="font-semibold"> Order Total </h2>
+                            <p class="font-semibold">Php 99.00</p>
+                        </div>
+
+                        <div class="">
+                            <button class="bg-black text-white w-full p-4 rounded-md shadow-xl">
+                                Checkout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+
+}

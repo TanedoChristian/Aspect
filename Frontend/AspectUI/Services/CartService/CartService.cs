@@ -30,7 +30,7 @@ namespace AspectUI.Services.CartService
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Cart>> GetAll(int id)
+        public async Task<IEnumerable<Cart>> GetAllByUser(int id)
         {
             return JsonSerializer.Deserialize<IEnumerable<Cart>>(await _client.GetStreamAsync($"api/cart/user/{id}"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }

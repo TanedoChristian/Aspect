@@ -12,10 +12,6 @@ namespace AspectUI.Components
     public partial class Card
     {
         [Inject]
-        public ILocalStorageService LocalStorageService { get; set; }
-
-
-        [Inject]
         private ICartService _cartService { get; set; }
 
 
@@ -49,6 +45,8 @@ namespace AspectUI.Components
             var cart = new Cart()
             {
                 ProductId = Id,
+                ProductName = Name,
+                Price = Price,
                 Quantity = 1,
                 UserId = 1
             };
