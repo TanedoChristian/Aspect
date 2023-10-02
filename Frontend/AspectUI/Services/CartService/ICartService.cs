@@ -1,6 +1,8 @@
-﻿namespace AspectUI.Services.CartService
+﻿using AspectUI.Models;
+
+namespace AspectUI.Services.CartService
 {
-    public interface ICartService
+    public interface ICartService : IBaseService<Cart>
     {
     }
 }

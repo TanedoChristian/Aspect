@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CartApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230928095420_InitialCreateCart")]
+    [Migration("20230928120316_InitialCreateCart")]
     partial class InitialCreateCart
     {
         /// <inheritdoc />
@@ -37,6 +37,9 @@ namespace CartApi.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("ProductId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Quantity")
                         .HasColumnType("integer");
 
                     b.Property<int>("UserId")

@@ -39,12 +39,29 @@ namespace CartApi.Controller
         [HttpPost]
         public async Task<IActionResult> AddCart(CartDto cartDto)
         {
-            var cart = _mapper.Map<Cart>(cartDto);
+            var cartToCompare = await _cartRepository.GetByUserId(cartDto.UserId);
 
-            await _cartRepository.Create(cart);
+            // Check if a cart entry with the same productId already exists
+            var existingCart = cartToCompare.FirstOrDefault(c => c.ProductId == cartDto.ProductId);
 
-            return Ok(cart);
+            if (existingCart != null)
+            {
+                // Update the quantity of the existing cart entry
+                existingCart.Quantity += 1;
+                await _cartRepository.Update(existingCart);
+
+                // Optionally, you can return the updated cart item here if needed.
+                return Ok(existingCart);
+            }
+            else
+            {
+                var cart = _mapper.Map<Cart>(cartDto);
+                await _cartRepository.Create(cart);
+
+                return Ok(cart);
+            }
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCartQuantity(int id)

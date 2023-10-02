@@ -15,6 +15,9 @@ namespace AspectUI.Services.ProductService
 
         public Task Create(Product entity)
         {
+
+            
+
             throw new NotImplementedException();
         }
 

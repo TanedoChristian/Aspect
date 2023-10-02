@@ -1,4 +1,5 @@
 ﻿using AspectUI.Models;
+using AspectUI.Services.CartService;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components;
 using System;
@@ -11,7 +12,12 @@ namespace AspectUI.Components
     public partial class Card
     {
         [Inject]
-        ILocalStorageService LocalStorageService { get; set; }
+        public ILocalStorageService LocalStorageService { get; set; }
+
+
+        [Inject]
+        private ICartService _cartService { get; set; }
+
 
         [Parameter]
         public int Id { get; set; }
@@ -28,26 +34,27 @@ namespace AspectUI.Components
         [Parameter]
         public List<ProductPhoto> Photos { get; set; } = new();
 
-        public List<int> Cart { get; set; } = new List<int>();
+
+        public Cart Cart { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            string json = await LocalStorageService.GetItemAsync<string>("cart");
-
-            if (!string.IsNullOrEmpty(json))
-            {
-                Cart = JsonSerializer.Deserialize<List<int>>(json);
-            }
-
+            
             await base.OnInitializedAsync();
         }
 
         protected async Task AddToCart()
         {
-            Cart.Add(Id);
 
-            string json = JsonSerializer.Serialize(Cart);
-            await LocalStorageService.SetItemAsync("cart", json);
+            var cart = new Cart()
+            {
+                ProductId = Id,
+                Quantity = 1,
+                UserId = 1
+            };
+
+
+            await _cartService.Create(cart);
         }
     }
 }

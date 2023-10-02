@@ -1,4 +1,5 @@
 using AspectUI;
+using AspectUI.Services.CartService;
 using AspectUI.Services.ProductService;
 using AspectUI.Services.UserService;
 using Blazored.LocalStorage;
@@ -16,6 +17,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddHttpClient<IProductService, ProductService>(client => client.BaseAddress = new Uri("http://localhost:5140/"));
+builder.Services.AddHttpClient<ICartService, CartService>(client => client.BaseAddress = new Uri("http://localhost:5110/"));
 
 
 
