@@ -19,6 +19,9 @@ namespace AspectUI.Components
         public int Id { get; set; }
         [Parameter]
         public string Name { get; set; }
+
+    
+
         [Parameter]
         public string Category { get; set; }
         [Parameter]
@@ -48,7 +51,8 @@ namespace AspectUI.Components
                 ProductName = Name,
                 Price = Price,
                 Quantity = 1,
-                UserId = 1
+                UserId = 1,
+                ProductImage = Photos[0].PhotoUrl
             };
 
 
