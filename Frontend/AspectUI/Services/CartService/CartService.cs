@@ -25,9 +25,9 @@ namespace AspectUI.Services.CartService
             await _client.PostAsync("api/cart", content);
         }
 
-        public Task Delete(Cart entity)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            await _client.DeleteAsync($"api/cart/delete/all/{id}");
         }
 
         public async Task<IEnumerable<Cart>> GetAllByUser(int id)

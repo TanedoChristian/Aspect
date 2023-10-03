@@ -21,7 +21,7 @@ namespace AspectUI.Services.ProductService
             throw new NotImplementedException();
         }
 
-        public Task Delete(Product entity)
+        public Task Delete(int id)
         {
             throw new NotImplementedException();
         }

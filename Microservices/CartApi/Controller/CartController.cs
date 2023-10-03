@@ -41,10 +41,17 @@ namespace CartApi.Controller
             }
 
             cart.Quantity-= 1;
-            
             await _cartRepository.Update(cart);
-
             return Ok("Deleted ");
+        }
+
+        [HttpDelete("delete/all/{id}")]
+        public async Task<IActionResult> DeleteAll(int id)
+        {
+            var cart = await _cartRepository.GetById(id);
+            await _cartRepository.Delete(cart);
+
+            return Ok("Deleted");
         }
 
         [HttpGet("user/{id}")]

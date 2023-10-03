@@ -13,19 +13,27 @@ namespace AspectUI.Pages
 
         public static decimal SubTotal {get; set;}
 
+
+        private async Task LoadCartAsync()
+        {
+            Carts = await _cartService.GetAllByUser(1);
+            SubTotal = Carts.Sum(cart => cart.Price * cart.Quantity);
+        }
         protected override async Task OnInitializedAsync()
         {
 
-            Carts = await _cartService.GetAllByUser(1);
 
-
-            foreach(var cart in Carts)
-            {
-                SubTotal += (cart.Price * cart.Quantity);
-            }
-            
+            await LoadCartAsync();
 
             await base.OnInitializedAsync();
+        }
+
+        private async Task DeleteCart(int id)
+        {
+            await _cartService.Delete(id);
+
+            await LoadCartAsync();
+            
         }
     }
 }

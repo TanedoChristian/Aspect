@@ -5,11 +5,12 @@
     <Header />
     <div class="w-full ">
         <div class="p-5">
-            <div class="w-full flex justify-between p-10">
-                <div class="w-[50%] flex flex-col bg-white p-3 shadow-md rounded-md ">
+            <div class="w-full flex justify-between  relative">
+                <div class="w-[60%] flex flex-col bg-white p-3 shadow-md rounded-md ">
                     @foreach(var cart in Carts)
                     {
-                        <div class="flex justify-between items-center relative">
+                        <div class="flex justify-between items-center relative p-3">
+                            <button class="absolute text-sm font-semibold text-red-500 bottom-0 right-0" @onclick="() => DeleteCart(cart.Id)">Remove </button>
                         <div class="flex gap-3 ">
                             <div class="p-5 rounded-md">
                                 <img src=@cart.ProductImage
@@ -28,9 +29,6 @@
 
                         <div>
                             <h1 class="text-gray-600 ">Quantity: <span class="font-semibold">@cart.Quantity</span></h1>
-
-
- 
                         </div>
 
 
@@ -45,21 +43,18 @@
                                         <option value="XL">XL</option>
                                     </select>
                             </div>
+                        </div>
 
-                           
+                            <div>
+                                <h1 class="text-gray-600 ">Total: <span class="font-semibold">@($"{cart.Quantity * cart.Price}")</span></h1>
+                            </div>
                             
                         </div>
-                            <div class="absolute  text-red-500 font-semibold">
-                                Remove
-                            </div>
-                        </div>
-
-                       
                     }
 
                     
                 </div>
-                <div class="w-[30%]  p-5 bg-white max-h-[5000px] rounded-md shadow-md">
+                <div class="w-[30%]  p-5 bg-white max-h-[5000px] rounded-md shadow-md absolute top-0 right-0">
                     <div>
                         <h1 class="text-3xl font-bold">Total Amount </h1>
                         <div class="m-5 p-3 flex justify-between border-b border-gray-300 ">
@@ -74,7 +69,7 @@
 
                         <div class="m-5 p-3 flex justify-between">
                             <h2 class="font-semibold"> Order Total </h2>
-                            <p class="font-semibold">Php 99.00</p>
+                            <p class="font-semibold">Php @($"{SubTotal + 99}").00</p>
                         </div>
 
                         <div class="">

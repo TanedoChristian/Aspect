@@ -17,7 +17,7 @@ namespace AspectUI.Services.UserService
             throw new NotImplementedException();
         }
 
-        public Task Delete(User entity)
+        public Task Delete(int id)
         {
             throw new NotImplementedException();
         }
