@@ -69,6 +69,10 @@
       "PackagePath": "staticwebassets\\index.html"
     },
     {
+      "Id": "C:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Frontend\\AspectUI\\wwwroot\\jsinterop.js",
+      "PackagePath": "staticwebassets\\jsinterop.js"
+    },
+    {
       "Id": "C:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Frontend\\AspectUI\\wwwroot\\lib\\font-awesome\\css\\all.css",
       "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\all.css"
     },

@@ -1,8 +1,15 @@
 ﻿<ul class="flex gap-5 text-slate-600 text-sm cursor-pointer category p-5">
-    <li class="">All Categories </li>
+    <button @onclick='() => Redirect("/shop/all")'>
+    <li class="">All Categories</li>
+    </button>
     <li class="">New </li>
-    <li class="">Men Fashion </li>
-    <li class="">Women Fashion </li>
+    <button @onclick='() => Redirect("/shop/men")'>
+        <li class="">Mens Fashion</li>
+    </button>
+
+    <button @onclick='() => Redirect("/shop/women")'>
+    <li class="">Womens Fashion</li>
+    </button>
     <li class="">Kids </li>
     <li class="">Accessories </li>
 </ul>

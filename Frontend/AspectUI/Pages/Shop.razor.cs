@@ -26,14 +26,17 @@ namespace AspectUI.Pages
             {
                 FilteredProducts = FilteredProducts.Where(c => c.Gender.ToLower().StartsWith(text.ToLower()));
             }
-
-            
         }
 
       
         public IEnumerable<Product> FilteredProducts { get; set; } = new List<Product>();
-        protected override async Task OnInitializedAsync()
+
+
+        protected override async Task OnParametersSetAsync()
         {
+            
+            await base.OnParametersSetAsync();
+
             if (Category != "all")
             {
                 FilteredProducts = await _productService.GetAll();
@@ -45,7 +48,10 @@ namespace AspectUI.Pages
             {
                 FilteredProducts = await _productService.GetAll();
             }
+        }
 
+        protected override async Task OnInitializedAsync()
+        {
             await base.OnInitializedAsync();
         }
     }

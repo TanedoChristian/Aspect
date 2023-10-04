@@ -8,6 +8,7 @@
   "resources": {
     "assembly": {
       "Blazored.LocalStorage.dll": "sha256-w2vMoqbIgF9UyzKqfDFXjqgg7IsGRHDvzb6DcyaPW6s=",
+      "CurrieTechnologies.Razor.SweetAlert2.dll": "sha256-ZtcnyZMjwbz1AT9+c1enyaTGZCWANbCxFnCqEcATz94=",
       "Microsoft.AspNetCore.Authorization.dll": "sha256-u3YI1z9+WYkzMnYZVJY7FxCR+SwmvycsqrxEJe\/+KdQ=",
       "Microsoft.AspNetCore.Components.dll": "sha256-SRGbF6QFgLGIr1L82S0pwdZ676zDEsdybsBfKWb\/Vzw=",
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-2Gr7ehRgVhAev11Ntgsx81qFKG1hVez4c8Lqxq0mc68=",
@@ -199,13 +200,13 @@
       "mscorlib.dll": "sha256-ZQiPq7CHB7vwsbgiGeI63xqAYmfnZVwKnCDxwIIfh68=",
       "netstandard.dll": "sha256-OUZMjYvE6WNC75Ypitp3ukl0+FlDbSW+OYEIsU7XlgQ=",
       "System.Private.CoreLib.dll": "sha256-uJANsJB4HA9iyaKf1ryCSbtypfL2uQZWxXKIn0Fz5+c=",
-      "AspectUI.dll": "sha256-l1MbEhL0pCYxqykcuq48veVD6kZa9+kCa6QVKcHmlPY="
+      "AspectUI.dll": "sha256-6jxdt54hwRQsps+QCn28N7dutdP3C42T3YExiIAdFTw="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "AspectUI.pdb": "sha256-SKBO8tQcRv1T2CPbGYOGwCTxWhj5jjXYaTTjgGczXQQ="
+      "AspectUI.pdb": "sha256-vtiJA7jlgsOgZ570zjD7Wlti0uckNeEDq5u3pJOfcr0="
     },
     "runtime": {
       "dotnet.6.0.21.gdrsdwu1c6.js": "sha256-0OV6gibFzyVtG7NXEj8a6vG3u8Cbzv4l9kkEathZjQ8=",

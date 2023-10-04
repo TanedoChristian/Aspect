@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "2W1MDFryOKujLiXNfaXVe4/lnX4z258mJKsKiNGLw2W/q93AxVbQjNC22GeVX2BD3VfzFSjcvrHhwPEqKBLS9g==",
+  "dgSpecHash": "3h5fEhZEkQoJMOk3K6SqD2zWXmIjU+Nd3asqZowNXSVs30gED+OLxIDir5WEddBBGQwbEnIstOGqfqj2OvfJvQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Frontend\\AspectUI\\AspectUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Full Scale\\.nuget\\packages\\blazored.localstorage\\4.4.0\\blazored.localstorage.4.4.0.nupkg.sha512",
+    "C:\\Users\\Full Scale\\.nuget\\packages\\currietechnologies.razor.sweetalert2\\5.5.0\\currietechnologies.razor.sweetalert2.5.5.0.nupkg.sha512",
     "C:\\Users\\Full Scale\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.20\\microsoft.aspnetcore.authorization.6.0.20.nupkg.sha512",
     "C:\\Users\\Full Scale\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.20\\microsoft.aspnetcore.components.6.0.20.nupkg.sha512",
     "C:\\Users\\Full Scale\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.20\\microsoft.aspnetcore.components.analyzers.6.0.20.nupkg.sha512",

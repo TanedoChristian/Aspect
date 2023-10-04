@@ -19,6 +19,7 @@ namespace AspectUI.Pages
         private async Task LoadCartAsync()
         {
             Carts = await _cartService.GetAllByUser(1);
+            Carts = Carts.OrderBy(cart => cart.ProductName).ToList();
             SubTotal = Carts.Sum(cart => cart.Price * cart.Quantity);
         }
         protected override async Task OnInitializedAsync()
@@ -42,11 +43,6 @@ namespace AspectUI.Pages
 
         private async Task DecrementQuantity(Cart cart)
         {
-
-          
-
-
-
             cart.UserId = 1;
             cart.Quantity--;
 

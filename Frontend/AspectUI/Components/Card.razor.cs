@@ -1,7 +1,9 @@
 ﻿using AspectUI.Models;
 using AspectUI.Services.CartService;
 using Blazored.LocalStorage;
+using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
@@ -36,6 +38,9 @@ namespace AspectUI.Components
 
         public Cart Cart { get; set; }
 
+        [Inject]
+        private SweetAlertService Swal { get; set; }
+
         protected override async Task OnInitializedAsync()
         {
             
@@ -44,6 +49,15 @@ namespace AspectUI.Components
 
         protected async Task AddToCart()
         {
+
+            await Swal.FireAsync(new SweetAlertOptions
+            {
+                Title = "Product Added",
+                Icon = SweetAlertIcon.Success,
+            });
+
+
+
 
             var cart = new Cart()
             {

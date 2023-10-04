@@ -832,3 +832,7 @@ C:\Users\Full Scale\Documents\Projects\Aspect\Frontend\AspectUI\bin\Debug\net6.0
 C:\Users\Full Scale\Documents\Projects\Aspect\Frontend\AspectUI\bin\Debug\net6.0\wwwroot\_framework\Blazored.LocalStorage.dll.gz
 C:\Users\Full Scale\Documents\Projects\Aspect\Frontend\AspectUI\bin\Debug\net6.0\Blazored.LocalStorage.dll
 C:\Users\Full Scale\Documents\Projects\Aspect\Frontend\AspectUI\obj\Debug\net6.0\build-gz\V72EANWi.gz
+C:\Users\Full Scale\Documents\Projects\Aspect\Frontend\AspectUI\bin\Debug\net6.0\wwwroot\_framework\CurrieTechnologies.Razor.SweetAlert2.dll
+C:\Users\Full Scale\Documents\Projects\Aspect\Frontend\AspectUI\bin\Debug\net6.0\wwwroot\_framework\CurrieTechnologies.Razor.SweetAlert2.dll.gz
+C:\Users\Full Scale\Documents\Projects\Aspect\Frontend\AspectUI\bin\Debug\net6.0\CurrieTechnologies.Razor.SweetAlert2.dll
+C:\Users\Full Scale\Documents\Projects\Aspect\Frontend\AspectUI\obj\Debug\net6.0\build-gz\5e+4NG8H.gz
