@@ -89,13 +89,13 @@ namespace CartApi.Controller
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCartQuantity(int id)
+        public async Task<IActionResult> UpdateCartQuantity(int id, CartDto cartDto)
         {
             var cart = await _cartRepository.GetById(id);
-            cart.Quantity += 1;
+
+            _mapper.Map(cartDto, cart);
 
             await _cartRepository.Update(cart);
-
             return Ok(cart);
 
         }

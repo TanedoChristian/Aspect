@@ -48,7 +48,13 @@ namespace AspectUI.Services.CartService
         public async Task Update(Cart entity)
         {
 
-            throw new NotImplementedException();
+            var content = new StringContent(
+                   JsonSerializer.Serialize(entity),
+                   Encoding.UTF8,
+                   "application/json"
+               );
+            await _client.PutAsync($"api/cart/{entity.Id}", content);
+
         }
     }
 }

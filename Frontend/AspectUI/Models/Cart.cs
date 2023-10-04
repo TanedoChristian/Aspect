@@ -15,5 +15,13 @@
         public int Quantity { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+
+        public override string ToString()
+        {
+            return $"{Id} - {ProductId} - {ProductName} - {Price} - {UserId} - {Price} - {ProductImage} - {Quantity}";
+        }
+
+
     }
 }

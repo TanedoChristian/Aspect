@@ -8,10 +8,12 @@ namespace AspectUI.Pages
     {
         [Inject]
         private ICartService _cartService { get; set; }
-
         public IEnumerable<Cart> Carts { get; set; }
 
+        public Cart Cart { get; set; }
         public static decimal SubTotal {get; set;}
+
+
 
 
         private async Task LoadCartAsync()
@@ -33,7 +35,40 @@ namespace AspectUI.Pages
             await _cartService.Delete(id);
 
             await LoadCartAsync();
-            
         }
+
+
+      
+
+        private async Task DecrementQuantity(Cart cart)
+        {
+
+          
+
+
+
+            cart.UserId = 1;
+            cart.Quantity--;
+
+
+            if (cart.Quantity == 0)
+            {
+                await _cartService.Delete(cart.Id);
+            }
+
+
+            await _cartService.Update(cart);
+            await LoadCartAsync();
+        }
+
+        private async Task IncrementQuantity(Cart cart)
+        {
+            cart.UserId = 1;
+            cart.Quantity++;
+            await _cartService.Update(cart);
+            await LoadCartAsync();
+        }
+
     }
+
 }
