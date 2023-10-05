@@ -37,16 +37,15 @@ namespace Aspect.ProductAPI.Controllers
         }
 
         [HttpPost]
-        public async Task <IActionResult> AddProduct(IEnumerable<ProductDto> productDto)
+        public async Task <IActionResult> AddProduct(ProductDto productDto)
         {
-            foreach(var p in productDto)
-            {
-                var product = _mapper.Map<Product>(p);
+           
+                var product = _mapper.Map<Product>(productDto);
 
                 await _productRepository.Create(product);
-            }
+            
 
-            return Ok();
+            return Ok(product);
         }
 
         [HttpDelete("{id}")]
