@@ -10,10 +10,10 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 namespace Aspect.ProductAPI.Controllers
 {
-
+   
     public class PhotosController : BaseApiController
     {
-
+        
         private readonly DataContext _context;
         private IMapper _mapper;
         private IConfiguration _config;
@@ -25,16 +25,17 @@ namespace Aspect.ProductAPI.Controllers
             _config = config;
         }
 
+
         [HttpPost]
-        public async Task<IActionResult> AddPhoto()
+        public async Task<IActionResult> AddFile()
         {
-            var photoDto = new PhotoDto();
             var formCollection = await Request.ReadFormAsync();
-
-            string id = formCollection["id"];
-
             var file = formCollection.Files.GetFile("file");
+            var id = formCollection["id"];
 
+
+            var photoDto = new PhotoDto();
+            
 
             if (file != null)
             {
@@ -44,13 +45,13 @@ namespace Aspect.ProductAPI.Controllers
                 await file.CopyToAsync(stream);
 
                 photoDto.ProductId = int.Parse(id);
-                photoDto.PhotoUrl = filePath;
+                photoDto.PhotoUrl = file.FileName;
 
                 var photo = _mapper.Map<ProductPhoto>(photoDto);
 
                 await _context.ProductPhotos.AddAsync(photo);
                 await _context.SaveChangesAsync();
-
+                
 
                 return Ok("File uploaded successfully.");
             }
@@ -58,13 +59,20 @@ namespace Aspect.ProductAPI.Controllers
             return BadRequest("Error");
         }
 
-        [HttpGet("{filename}")]
-        public async Task<IActionResult> GetFile(string filename)
+
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetFile(int id)
         {
-            var filePath = Path.Combine($"{_config["FileStorage"]}", filename);
-            var file = System.IO.File.OpenRead(filePath);
-            return File(file, "application/octet-stream", filename);
+            
+            var filePath = _context.ProductPhotos.FirstOrDefault(photo => photo.Id == id);
+            var file = System.IO.File.OpenRead(filePath.PhotoUrl);
+            return File(file, "application/octet-stream");
+
+
+            
         }
+
 
 
         [HttpGet]
@@ -73,6 +81,6 @@ namespace Aspect.ProductAPI.Controllers
             return Ok(await _context.ProductPhotos.ToListAsync());
         }
 
-
+        
     }
 }

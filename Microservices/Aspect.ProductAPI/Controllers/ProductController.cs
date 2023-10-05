@@ -41,7 +41,6 @@ namespace Aspect.ProductAPI.Controllers
         {
            
                 var product = _mapper.Map<Product>(productDto);
-
                 await _productRepository.Create(product);
             
 

@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "WoziwiZ1RsnXaN6ZHs3v3W3ehjX9Ke8OZzNjmB5GDxQ=",
+  "Hash": "4BtuYZj1ARwjNLa5eldTcDmaWR4sQpD/wbUyv2tBxEM=",
   "Source": "Aspect.ProductAPI",
   "BasePath": "_content/Aspect.ProductAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "Aspect.ProductAPI\\wwwroot",
+      "Source": "Aspect.ProductAPI",
+      "ContentRoot": "C:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\Aspect.ProductAPI\\wwwroot\\",
+      "BasePath": "_content/Aspect.ProductAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\Aspect.ProductAPI\\wwwroot\\images\\travis.webp",
+      "SourceId": "Aspect.ProductAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Full Scale\\Documents\\Projects\\Aspect\\Microservices\\Aspect.ProductAPI\\wwwroot\\",
+      "BasePath": "_content/Aspect.ProductAPI",
+      "RelativePath": "images/travis.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\travis.webp"
+    }
+  ]
 }

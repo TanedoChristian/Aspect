@@ -13,12 +13,8 @@ namespace CartApi.Entities
         public decimal Price { get; set; }
         public string ProductImage {get; set;}
         public int UserId { get; set; }
-
         public int Quantity { get; set; }
         public decimal TotalPrice => Price * Quantity;
-
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-
-
     }
 }

@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Aspect.ProductAPI.Services.Application;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +39,17 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+var serverFiles = builder.Configuration["FileStorage"];
+var fileProvider = new PhysicalFileProvider(serverFiles);
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = fileProvider,
+    RequestPath = "/image/product"
+});
+
 
 app.UseCors();
 

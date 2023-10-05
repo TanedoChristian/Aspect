@@ -1,0 +1,183 @@
+﻿@page "/admin/products"
+
+<div>
+    <div class="flex">
+        <SideNav />
+        <main class="p-5 flex  w-full justify-between px-20 ">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-800">Product View</h1>
+                <div class="relative overflow-x-auto shadow-md border border-gray-200 rounded-xl  max-h-[650px]">
+                    <table class="text-sm text-left text-gray-500">
+                        <thead class="text-xs text-gray-700 uppercase">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    ID
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Name
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Quantity
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Category
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Gender
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Price
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                          
+                                @foreach(var product in Products)
+                            {
+                                <tr class="bg-white border-b text-black">
+                                    <td class="px-6 py-4">@product.Id</td>
+                                    <th scope="row"
+                                        class="flex gap-2  items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        <img src="@(product.Photos != null && product.Photos.Count > 0
+    ? $"http://localhost:5140/image/product/{product.Photos[0].PhotoUrl}"
+    : "")" class="w-10 h-15" />
+
+                                        @product.Name
+                                    </th>
+                                    <td class="px-6 py-4">@product.Quantity</td>
+                                    <td class="px-6 py-4">@product.Category</td>
+                                    <td class="px-6 py-4">@product.Gender</td>
+                                    <td class="px-6 py-4 font-bold text-blue-500 ">
+                                        Php @product.Price .00
+                                    </td>
+                                </tr>
+                            }
+                           
+                          
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                <div class="relative px-4 sm:px-6 lg:px-8 max-w-lg mx-auto"></div>
+
+                <div class="w-[450px]">
+                    <div class="bg-white px-8 pb-6 rounded-b shadow-lg p-5">
+                        <h1 class="text-3xl font-bold">Add Product </h1>
+
+                        <div class="mt-10">
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-1">
+                                        Product Name <span class="text-red-500">*</span>
+                                    </label>
+                                    <input id="card-nr"
+                                           class="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full"
+                                           type="text"
+                                           name="name"
+                                           @bind="Product.Name"
+                                           placeholder=""
+                                           />
+                                </div>
+                                <label class="block text-sm font-medium mb-1">
+                                    Product Image <span class="text-red-500">*</span>
+                                </label>
+                                <label class="mt-10 flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100 ">
+                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                        <svg class="w-8 h-8 mb-4 text-gray-500 "
+                                             aria-hidden="true"
+                                             xmlns="http://www.w3.org/2000/svg"
+                                             fill="none"
+                                             viewBox="0 0 20 16">
+                                            <path stroke="currentColor"
+                                                  stroke-linecap="round"
+                                                  stroke-linejoin="round"
+                                                  stroke-width="2"
+                                                  d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                                        </svg>
+                                        <p class="mb-2 text-sm text-gray-500">
+                                            <span class="font-semibold">
+                                                Upload Product Image
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <InputFile OnChange="HandleSelection" />
+                                </label>
+
+                                <div class="flex space-x-4">
+                                    <div class="flex-1">
+                                        <label class="block text-sm font-medium mb-1">
+                                            Category <span class="text-red-500">*</span>
+                                        </label>
+                                        <select id="countries"
+                                                class="bg-gray-50 border border-gray-200 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2"
+                                                name="category"
+                                                @bind="Product.Category"
+                                                defaultValue="Clothing">
+                                            <option value="Clothing">Clothing</option>
+                                            <option value="Accessories">Accessories</option>
+                                            <option value="Bags">Bags</option>
+                                            <option value="Essentials">Essentials</option>
+                                        </select>
+                                    </div>
+                                    <div class="flex-1">
+                                        <label class="block text-sm font-medium mb-1">
+                                            Gender <span class="text-red-500">*</span>
+                                        </label>
+                                        <select id="countries"
+                                                class="bg-gray-50 border border-gray-200 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2"
+                                                name="gender"
+                                                @bind="Product.Gender"
+                                                defaultValue="Unisex">
+                                            <option value="Men">Men</option>
+                                            <option value="Women">Women</option>
+                                            <option value="Unisex">Unisex</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium mb-1">
+                                        Quantity <span class="text-red-500">*</span>
+                                    </label>
+                                    <input id="card-name"
+                                           class="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full"
+                                           type="number"
+                                           name="quantity"
+                                    @bind="Product.Quantity"
+                                           placeholder="8"
+                                           />
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium mb-1">
+                                        Price <span class="text-red-500">*</span>
+                                    </label>
+                                    <input id="card-email"
+                                           class="text-sm text-gray-800 bg-white border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full"
+                                           type="number"
+                                           name="price"
+                                    @bind="Product.Price"
+                                           placeholder="550.00"
+                                           />
+                                </div>
+                            </div>
+
+                            <div class="mt-6">
+                                <div class="mb-4">
+                                    <button 
+                                        @onclick="HandleSubmit"
+                                        class="font-medium text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out w-full bg-black hover:bg-indigo-600 text-white focus:outline-none focus-visible:ring-2"
+                                        >
+                                        Add Product
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

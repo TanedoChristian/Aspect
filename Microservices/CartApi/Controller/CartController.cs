@@ -97,9 +97,6 @@ namespace CartApi.Controller
 
             await _cartRepository.Update(cart);
             return Ok(cart);
-
-        }
-
-       
+        }  
     }
 }
