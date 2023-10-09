@@ -40,7 +40,7 @@ namespace AspectUI.Services.CartService
             throw new NotImplementedException();
         }
 
-        public Task<Cart> GetById()
+        public Task<Cart> GetById(int id)
         {
             throw new NotImplementedException();
         }

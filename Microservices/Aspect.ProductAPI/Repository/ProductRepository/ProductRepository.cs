@@ -34,7 +34,7 @@ namespace Aspect.ProductAPI.Repository.ProductRepository
 
         public async Task<Product> GetById(int id)
         {
-            return await _context.Products.FirstOrDefaultAsync(p => p.Id ==  id);
+            return await _context.Products.Include(p => p.Photos).FirstOrDefaultAsync(p => p.Id ==  id);
         }
 
         public async Task Update(Product entity)

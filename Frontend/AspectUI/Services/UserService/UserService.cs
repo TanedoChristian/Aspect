@@ -27,7 +27,7 @@ namespace AspectUI.Services.UserService
             return JsonSerializer.Deserialize<IEnumerable<User>>(await _httpClient.GetStreamAsync($"api/user"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
 
-        public Task<User> GetById()
+        public Task<User> GetById(int id)
         {
             throw new NotImplementedException();
         }

@@ -47,6 +47,9 @@ namespace AspectUI.Components
             await base.OnInitializedAsync();
         }
 
+
+      
+
         protected async Task AddToCart()
         {
 

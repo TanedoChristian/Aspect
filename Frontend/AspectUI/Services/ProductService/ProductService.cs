@@ -32,9 +32,10 @@ namespace AspectUI.Services.ProductService
 
         }
 
-        public Task<Product> GetById()
+        public async Task<Product> GetById(int id)
         {
-            throw new NotImplementedException();
+            return JsonSerializer.Deserialize<Product>(await _httpClient.GetStreamAsync($"api/product/{id}"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+
         }
 
         public Task Update(Product entity)

@@ -35,8 +35,6 @@ namespace Aspect.ProductAPI.Controllers
 
 
             var photoDto = new PhotoDto();
-            
-
             if (file != null)
             {
                 var filePath = Path.Combine($"{_config["FileStorage"]}", file.FileName);
