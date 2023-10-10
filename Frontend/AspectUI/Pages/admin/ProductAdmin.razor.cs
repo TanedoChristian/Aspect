@@ -18,7 +18,7 @@ namespace AspectUI.Pages.admin
         [Inject]
         HttpClient _httpClient { get; set; }
 
-        IBrowserFile selectedFile;
+   
 
         [Inject]
         private SweetAlertService Swal { get; set; }
@@ -26,6 +26,8 @@ namespace AspectUI.Pages.admin
         public IEnumerable<Product> Products { get; set; }
 
         public ProductDto Product { get; set; } = new ProductDto();
+
+        private  List<IBrowserFile> selectedFiles = new List<IBrowserFile>();
 
         
 
@@ -45,9 +47,16 @@ namespace AspectUI.Pages.admin
 
       
 
-        private void HandleSelection(InputFileChangeEventArgs eventArgs)
+        private void HandleSelection(InputFileChangeEventArgs e)
         {
-            selectedFile = eventArgs.GetMultipleFiles().FirstOrDefault();
+           
+
+            foreach (var file in e.GetMultipleFiles())
+            {
+                selectedFiles.Add(file);
+            }
+
+            
         }
 
 
@@ -65,7 +74,7 @@ namespace AspectUI.Pages.admin
 
             var responseContent = await response.Content.ReadAsStringAsync();
             var uploadResponse = JsonSerializer.Deserialize<Product>(responseContent, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
-            if (selectedFile != null)
+            /*if (selectedFile != null)
             {
                 var formData = new MultipartFormDataContent();
                 formData.Add(new StreamContent(selectedFile.OpenReadStream(selectedFile.Size)), "file", selectedFile.Name);
@@ -79,10 +88,10 @@ namespace AspectUI.Pages.admin
                     Title = "Product Added",
                     Icon = SweetAlertIcon.Success,
                 });
-            }
+            }*/
 
             Product = new ProductDto();
-            selectedFile = null;
+            //selectedFile = null;
 
             await LoadProductsAsync();
            
