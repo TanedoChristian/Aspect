@@ -66,9 +66,6 @@ namespace Aspect.ProductAPI.Controllers
             var filePath = _context.ProductPhotos.FirstOrDefault(photo => photo.Id == id);
             var file = System.IO.File.OpenRead(filePath.PhotoUrl);
             return File(file, "application/octet-stream");
-
-
-            
         }
 
 

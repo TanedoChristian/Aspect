@@ -49,14 +49,10 @@ namespace AspectUI.Pages.admin
 
         private void HandleSelection(InputFileChangeEventArgs e)
         {
-           
-
             foreach (var file in e.GetMultipleFiles())
             {
                 selectedFiles.Add(file);
             }
-
-            
         }
 
 
@@ -66,32 +62,42 @@ namespace AspectUI.Pages.admin
         {
 
             var content = new StringContent(
-                   JsonSerializer.Serialize(Product),
-                   Encoding.UTF8,
-                   "application/json"
-               );
+            JsonSerializer.Serialize(Product),
+            Encoding.UTF8,
+            "application/json"
+            );  
+
             var response = await _httpClient.PostAsync("http://localhost:5140/api/Product", content);
 
             var responseContent = await response.Content.ReadAsStringAsync();
             var uploadResponse = JsonSerializer.Deserialize<Product>(responseContent, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
-            /*if (selectedFile != null)
+
+            int id = uploadResponse.Id;
+
+            using var httpClient = new HttpClient();
+
+            foreach (var selectedFile in selectedFiles)
             {
-                var formData = new MultipartFormDataContent();
-                formData.Add(new StreamContent(selectedFile.OpenReadStream(selectedFile.Size)), "file", selectedFile.Name);
-                formData.Add(new StringContent(uploadResponse.Id.ToString()), "id");
-
-                var httpClient = new HttpClient();
-                await _httpClient.PostAsync("http://localhost:5140/api/Photos", formData);
-
-                await Swal.FireAsync(new SweetAlertOptions
+                if (selectedFile != null)
                 {
-                    Title = "Product Added",
-                    Icon = SweetAlertIcon.Success,
-                });
-            }*/
+                    var formData = new MultipartFormDataContent();
+                    formData.Add(new StreamContent(selectedFile.OpenReadStream(selectedFile.Size)), "files", selectedFile.Name);
+                    formData.Add(new StringContent("51"), "id");
+
+                    await httpClient.PostAsync("http://localhost:5140/api/Photos", formData);
+                }
+            }
+
+
+
+            await Swal.FireAsync(new SweetAlertOptions
+            {
+                Title = "Product Added",
+                Icon = SweetAlertIcon.Success,
+            });
 
             Product = new ProductDto();
-            //selectedFile = null;
+           
 
             await LoadProductsAsync();
            
