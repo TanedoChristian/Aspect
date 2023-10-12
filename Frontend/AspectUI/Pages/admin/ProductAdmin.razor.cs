@@ -107,7 +107,7 @@ namespace AspectUI.Pages.admin
             Product = new ProductDto();
             selectedFiles = null;
 
-            await LoadProductsAsync();
+            await OnInitializedAsync();
            
         }
 
