@@ -9,9 +9,10 @@ namespace AspectUI.Pages
     {
         [Parameter]
         public string Id {  get; set; }
-
-
         public Product Product { get; set; }
+
+        public string MainImage { get; set;  }
+
 
         [Inject]
         public IProductService _productService { get; set; }
@@ -27,6 +28,14 @@ namespace AspectUI.Pages
         private async Task LoadProduct(int id)
         {
             Product = await _productService.GetById(id);
+            MainImage = Product.Photos[0].PhotoUrl;
+
+        }
+
+        private void ChangeMainImage(string photo)
+        {
+            
+            MainImage = photo;
         }
 
 

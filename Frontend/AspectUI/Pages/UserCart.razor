@@ -20,8 +20,11 @@
                                 <button class="absolute text-sm font-semibold text-red-500 bottom-0 right-0" @onclick="() => DeleteCart(cart.Id)">Remove </button>
                                 <div class="flex gap-3 ">
                                     <div class="p-5 rounded-md">
-                                        <img src=@cart.ProductImage
+                                        <img src=@($"http://localhost:5140/image/product/{cart.ProductImage}")
                                              class="w-[100px]" />
+
+
+
                                     </div>
                                     <div class="flex flex-col gap-1 p-5 justify-center">
 

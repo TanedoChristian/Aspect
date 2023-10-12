@@ -5,6 +5,7 @@ using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 
@@ -36,7 +37,6 @@ namespace AspectUI.Pages.admin
 
 
             await LoadProductsAsync();
-
             await base.OnInitializedAsync();
         }
 
@@ -76,19 +76,27 @@ namespace AspectUI.Pages.admin
 
             using var httpClient = new HttpClient();
 
+
+            var formData = new MultipartFormDataContent();
+            formData.Add(new StringContent(id.ToString()), "id");
+
             foreach (var selectedFile in selectedFiles)
             {
-                if (selectedFile != null)
+                var fileStream = selectedFile.OpenReadStream();
+                
+                var fileContent = new StreamContent(fileStream);
+                fileContent.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data")
                 {
-                    var formData = new MultipartFormDataContent();
-                    formData.Add(new StreamContent(selectedFile.OpenReadStream(selectedFile.Size)), "files", selectedFile.Name);
-                    formData.Add(new StringContent("51"), "id");
-
-                    await httpClient.PostAsync("http://localhost:5140/api/Photos", formData);
-                }
+                    Name = "file",
+                    FileName = selectedFile.Name
+                };
+                formData.Add(fileContent);
+                
             }
 
+            await httpClient.PostAsync("http://localhost:5140/api/Photos", formData);
 
+        
 
             await Swal.FireAsync(new SweetAlertOptions
             {
@@ -97,7 +105,7 @@ namespace AspectUI.Pages.admin
             });
 
             Product = new ProductDto();
-           
+            selectedFiles = null;
 
             await LoadProductsAsync();
            

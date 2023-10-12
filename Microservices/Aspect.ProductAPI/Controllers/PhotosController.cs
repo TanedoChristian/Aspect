@@ -30,12 +30,15 @@ namespace Aspect.ProductAPI.Controllers
         public async Task<IActionResult> AddFile()
         {
             var formCollection = await Request.ReadFormAsync();
-            var file = formCollection.Files.GetFile("file");
+            var files = formCollection.Files;
             var id = formCollection["id"];
 
 
             var photoDto = new PhotoDto();
-            if (file != null)
+
+            foreach(var file in files) 
+            {
+             if (file != null)
             {
                 var filePath = Path.Combine($"{_config["FileStorage"]}", file.FileName);
 
@@ -49,12 +52,11 @@ namespace Aspect.ProductAPI.Controllers
 
                 await _context.ProductPhotos.AddAsync(photo);
                 await _context.SaveChangesAsync();
-                
-
-                return Ok("File uploaded successfully.");
             }
+            }
+            
 
-            return BadRequest("Error");
+            return Ok("File uploaded successfully.");
         }
 
 
