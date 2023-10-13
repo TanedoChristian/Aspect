@@ -40,10 +40,8 @@ namespace Aspect.ProductAPI.Controllers
         public async Task <IActionResult> AddProduct(ProductDto productDto)
         {
            
-                var product = _mapper.Map<Product>(productDto);
-                await _productRepository.Create(product);
-            
-
+            var product = _mapper.Map<Product>(productDto);
+            await _productRepository.Create(product);
             return Ok(product);
         }
 

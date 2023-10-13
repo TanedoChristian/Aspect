@@ -8,10 +8,14 @@ namespace AspectUI.Pages
     public partial class ProductPage
     {
         [Parameter]
-        public string Id {  get; set; }
+        public string Id { get; set; }
         public Product Product { get; set; }
 
-        public string MainImage { get; set;  }
+        public string MainImage { get; set; }
+
+        public int Quantity { get; set; } = 1;
+
+       
 
 
         [Inject]
@@ -23,8 +27,8 @@ namespace AspectUI.Pages
             await base.OnInitializedAsync();
         }
 
-      
-        
+
+
         private async Task LoadProduct(int id)
         {
             Product = await _productService.GetById(id);
@@ -34,10 +38,20 @@ namespace AspectUI.Pages
 
         private void ChangeMainImage(string photo)
         {
-            
+
             MainImage = photo;
         }
 
+        private void HandleQuantity(string action)
+        {
+            if(action == "increase")
+            {
+                Quantity++;
+            } else
+            {
+                Quantity--;
+            }
+        }
 
 
     }

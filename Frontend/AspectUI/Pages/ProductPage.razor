@@ -4,7 +4,30 @@
 <div>
     <Header />
     <div class="w-full">
-        <section class="w-full flex justify-center p-5">
+        <section class="w-full flex justify-center p-5 relative">
+
+            <ul class="absolute flex top-0 left-0 p-2 font-semibold text-gray-500 gap-2">
+                <li><a href="/">Aspect</a></li>
+                <li>></li>
+                <li><a href="/shop/all">Shop</a></li>
+                <li>></li>
+                <li>
+
+                    @if(Product.Gender.ToLower() == "men")
+                    {
+                        <a href=@($"/shop/men")> Men</a>
+                    } else
+                    {
+                        <a href=@($"/shop/women")> Women</a>
+                    }
+
+                   
+                    </li>
+                <li>></li>
+                <li><a href="">@Product.Name</a></li>
+                
+            </ul>
+
             <div class="w-full desktop:w-[80%]  desktop:flex ">
                 <div class="desktop:w-[20%] justify-center flex desktop:justify-end  w-full ">
                     <div class="flex desktop:flex desktop:flex-col gap-2 m-2">
@@ -132,9 +155,9 @@
                     <div class="mt-5 ">
                         <p class="text-xl font-bold text-gray-700">Quantity</p>
                         <div class="flex gap-3 p-3 items-center">
-                            <button class="text-xl font-semibold"> - </button>
-                            <p class="text-xl">1</p>
-                            <button class="text-xl font-semibold"> + </button>
+                            <button class="text-xl font-semibold" @onclick='() => HandleQuantity("decrease")'> - </button>
+                            <p class="text-xl">@Quantity</p>
+                            <button class="text-xl font-semibold" @onclick='() => HandleQuantity("increase")'> + </button>
                         </div>
                     </div>
 
