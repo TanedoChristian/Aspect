@@ -17,6 +17,17 @@ services:
       - 9012:80
     depends_on:
       - database
+    volumes:
+      - user_api_files:/app/UserFiles
+
+  cart-api:
+    build:
+      context: ./Microservices/CartApi
+      dockerfile: Dockerfile
+    ports:
+      - 9013:80
+    depends_on:
+      - database
 
   database:
     image: postgres:12
@@ -32,3 +43,4 @@ services:
 
 volumes:
   postgres_data:
+  user_api_files:
