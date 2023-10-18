@@ -11,6 +11,7 @@ namespace Aspect.ProductAPI.Profiles
             CreateMap<ProductDto, Product>().ReverseMap();
             CreateMap<PhotoDto, ProductPhoto>().ReverseMap();
             CreateMap<ProductDto, Product>().ReverseMap();
+            CreateMap<ProductReviewRequestDto, ProductReview>().ReverseMap();
         }
     }
 }

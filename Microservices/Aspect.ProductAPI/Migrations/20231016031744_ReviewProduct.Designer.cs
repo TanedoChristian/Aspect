@@ -3,6 +3,7 @@ using System;
 using Aspect.ProductAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Aspect.ProductAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20231016031744_ReviewProduct")]
+    partial class ReviewProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,10 +100,6 @@ namespace Aspect.ProductAPI.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Review")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("ReviewTitle")
                         .IsRequired()
                         .HasColumnType("text");
 

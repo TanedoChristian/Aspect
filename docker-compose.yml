@@ -25,7 +25,7 @@ services:
       context: ./Microservices/CartApi
       dockerfile: Dockerfile
     ports:
-      - 9013:80
+      - 9014:80
     depends_on:
       - database
 
@@ -37,7 +37,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: aspect
     ports:
-      - 5432:5432
+      - 5433:5432
     volumes:
       - postgres_data:/var/lib/postgresql/data
 

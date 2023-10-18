@@ -1,4 +1,5 @@
 ﻿using Aspect.ProductAPI.Repository.ProductRepository;
+using Aspect.ProductAPI.Repository.ReviewRepository;
 
 namespace Aspect.ProductAPI.Services.Application
 {
@@ -8,6 +9,7 @@ namespace Aspect.ProductAPI.Services.Application
         {
 
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IReviewRepository, ReviewRepository>();
 
             return services;
         }
