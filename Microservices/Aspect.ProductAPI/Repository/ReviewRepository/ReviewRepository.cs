@@ -19,9 +19,10 @@ namespace Aspect.ProductAPI.Repository.ReviewRepository
             await _context.SaveChangesAsync();
         }
 
-        public Task Delete(ProductReview entity)
+        public async Task Delete(ProductReview entity)
         {
-            throw new NotImplementedException();
+            _context.ProductReviews.Remove(entity);
+            await _context.SaveChangesAsync();
         }
 
         public Task<IEnumerable<ProductReview>> GetAll()
@@ -34,9 +35,9 @@ namespace Aspect.ProductAPI.Repository.ReviewRepository
             return await _context.ProductReviews.Where(product => product.ProductId == productId).ToListAsync();
         }
 
-        public Task<ProductReview> GetById(int id)
+        public async Task<ProductReview> GetById(int id)
         {
-            throw new NotImplementedException();
+            return await _context.ProductReviews.FirstOrDefaultAsync(product => product.Id == id);
         }
 
         public Task Update(ProductReview entity)

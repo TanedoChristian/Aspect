@@ -37,7 +37,14 @@ namespace Aspect.ProductAPI.Controllers
             }
 
             return Ok(reviews);
-        
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteReview(int id)
+        {
+            var review = await _reviewRepository.GetById(id);
+            await _reviewRepository.Delete(review);
+
+            return Ok("Deleted");
         }
     }
 }
