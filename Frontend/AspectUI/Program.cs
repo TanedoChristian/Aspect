@@ -24,7 +24,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddHttpClient<IProductService, ProductService>(client => client.BaseAddress = new Uri("http://localhost:5140/"));
 builder.Services.AddHttpClient<ICartService, CartService>(client => client.BaseAddress = new Uri("http://localhost:5110/"));
-builder.Services.AddHttpClient<IReviewService, ReviewService>(client => client.BaseAddress = new Uri("http://localhost:5110/"));
+builder.Services.AddHttpClient<IReviewService, ReviewService>(client => client.BaseAddress = new Uri("http://localhost:5140/"));
 builder.Services.AddSweetAlert2();
 
 
