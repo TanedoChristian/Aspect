@@ -16,6 +16,11 @@ namespace AspectUI.Components
 
         private List<bool> starValues;
 
+
+        [Parameter]
+        public bool ShowReviewModal {  get; set; }
+
+
         public ProductReview ProductReview { get; set; } = new ProductReview();
 
         protected override void OnInitialized()
@@ -38,5 +43,9 @@ namespace AspectUI.Components
             await _reviewService.Create(ProductReview);
         }
 
+        public void HandleModal()
+        {
+            ShowReviewModal = false;
+        }
     }
 }

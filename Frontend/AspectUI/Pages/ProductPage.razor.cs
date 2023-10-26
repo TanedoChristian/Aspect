@@ -31,6 +31,11 @@ namespace AspectUI.Pages
         [Inject]
         public ICartService _cartService { get; set; }
 
+
+        public bool ShowReviewModal = false;
+
+
+
         protected override async Task OnInitializedAsync()
         {
             await LoadProduct(int.Parse(Id));
