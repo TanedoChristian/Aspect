@@ -33,6 +33,11 @@ namespace AspectUI.Services.ReviewService
             throw new NotImplementedException();
         }
 
+        public async Task<IEnumerable<ProductReview>> GetAllByProduct(int id)
+        {
+            return JsonSerializer.Deserialize<IEnumerable<ProductReview>>(await _client.GetStreamAsync($"api/Review/{id}"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+        }
+
         public Task<ProductReview> GetById(int id)
         {
             throw new NotImplementedException();

@@ -41,6 +41,8 @@ namespace AspectUI.Components
             ProductReview.ReviewTitle = "Test";
 
             await _reviewService.Create(ProductReview);
+
+            HandleModal();
         }
 
         public void HandleModal()
