@@ -70,9 +70,9 @@ namespace CartApi.Controller
 
             if (existingCart != null)
             {
+                
                 existingCart.Quantity += 1;
                 await _cartRepository.Update(existingCart);
-
                 return Ok(existingCart);
             }
             else

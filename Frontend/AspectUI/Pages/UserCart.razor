@@ -13,45 +13,38 @@
             } else
             {
                 <div class="w-full flex justify-between  relative">
-                    <div class="w-[60%] flex flex-col bg-white p-3 shadow-md rounded-md ">
+                    <div class="w-[60%] flex flex-col bg-white p-3 shadow-md rounded-md h-[80vh] overflow-y-auto">
                         @foreach (var cart in Carts)
                         {
-                            <div class="flex justify-between items-center relative p-3">
+                            <div class="flex justify-between items-center relative p-3 ">
                                 <button class="absolute text-sm font-semibold text-red-500 bottom-0 right-0" @onclick="() => DeleteCart(cart.Id)">Remove </button>
                                 <div class="flex gap-3 ">
                                     <div class="p-5 rounded-md">
                                         <img src=@($"http://localhost:5140/image/product/{cart.ProductImage}")
                                              class="w-[100px]" />
-
-
-
                                     </div>
-                                    <div class="flex flex-col gap-1 p-5 justify-center">
+                                    <div class="flex flex-col gap-1 p-5 justify-center w-[250px]">
 
                                         <h2 class="font-semibold text-xl">
                                             @cart.ProductName
                                         </h2>
                                         <p class="font-semibold text-sm"><span class="text-gray-600">Price: </span>Php. @cart.Price .00</p>
-                                        <p class="font-semibold text-sm"><span class="text-gray-600">Size: </span> Large</p>
 
                                     </div>
                                 </div>
 
-                                <div class="flex gap-3 items-center">
+                                <div class="flex gap-3 justify-end  items-center">
                                     <button class="p-2 font-bold text-lg" @onclick="() => DecrementQuantity(cart)"> - </button>
                                     <span class="font-semibold text-xl">@cart.Quantity</span>
                                     <button class="p-2 font-bold text-lg" @onclick="() => IncrementQuantity(cart)"> + </button>
-
-
-
                                 </div>
 
 
                                 <div class="px-10 flex gap-3">
                                     <div class="gap-2 flex items-center">
                                         <label for="countries" class="block mb-2 text-sm font-medium text-gray-600">Size: </label>
-                                        <select id="countries" class="bg-gray-50 border border-gray-200 text-gray-900 text- rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2">
-                                            <option selected>S</option>
+                                        <select id="countries" class="bg-gray-50 border border-gray-200 text-gray-900 text- rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2" @onchange="HandleSelectedSize">
+                                            <option selected>@cart.Size</option>
                                             <option value="S">S</option>
                                             <option value="M">M</option>
                                             <option value="L">L</option>

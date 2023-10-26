@@ -101,54 +101,17 @@
                     <div class="mt-5">
                         <p class="text-xl font-bold text-gray-700">Size</p>
                         <div class="flex gap-2 p-2">
-                            <div class="flex items-center">
-                                <input type="radio"
-                                       id="hidden-radio"
-                                       name="radio-group"
-                                       class="hidden" />
 
-                                <label class="cursor-pointer select-none">
-                                    <span class="border border-gray-300 bg-white px-5 text-gray-600  py-1.5 rounded-full ">
-                                        XS
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="flex items-center">
-                                <input type="radio"
-                                       id="hidden-radio"
-                                       name="radio-group"
-                                       class="hidden" />
-
-                                <label class="cursor-pointer select-none">
-                                    <span class="border border-gray-300 bg-white px-5 text-gray-600  py-1.5 rounded-full ">
-                                        S
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="flex items-center">
-                                <input type="radio"
-                                       id="hidden-radio"
-                                       name="radio-group"
-                                       class="hidden" />
-
-                                <label class="cursor-pointer select-none">
-                                    <span class="border border-gray-300 bg-white px-5 text-gray-600  py-1.5 rounded-full ">
-                                        M
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="flex items-center">
-                                <input type="radio"
-                                       id="hidden-radio"
-                                       name="radio-group"
-                                       class="hidden" />
-
-                                <label class="cursor-pointer select-none">
-                                    <span class="border border-gray-300 bg-white px-5 text-gray-600  py-1.5 rounded-full ">
-                                        L
-                                    </span>
-                                </label>
-                            </div>
+                            @foreach(var option in SizeOptions)
+                            {
+                                <div class="flex items-center">
+                                    <label class="cursor-pointer" @onclick="() => HandleSelectedSize(option)">
+                                        <span class="border  @(SelectedOption == option ? "border-2 border-black" : "border-gray-300") bg-white px-5 text-gray-600  py-1.5 rounded-full ">
+                                            @option
+                                        </span>
+                                    </label>
+                                </div>
+                            }
                         </div>
                     </div>
 
@@ -161,7 +124,7 @@
                         </div>
                     </div>
 
-                    <button class="p-3 m-5 w-[80%] font-semibold bg-black text-white bottom-0 desktop:absolute">
+                    <button class="p-3 m-5 w-[80%] font-semibold bg-black text-white bottom-0 desktop:absolute" @onclick="AddToCart">
                         ADD TO CART
                     </button>
                 </div>
@@ -170,6 +133,9 @@
     </div>
 
     <Review />
+    <ReviewForm Product="Product"/>
+
+    
 
    
 </div>

@@ -1,0 +1,44 @@
+﻿<div class="flex justify-between items-center relative p-3 ">
+    <button class="absolute text-sm font-semibold text-red-500 bottom-0 right-0">Remove </button>
+    <div class="flex gap-3 ">
+        <div class="p-5 rounded-md">
+            <img src=@($"http://localhost:5140/image/product/{Cart.ProductImage}")
+                 class="w-[100px]" />
+
+
+
+        </div>
+        <div class="flex flex-col gap-1 p-5 justify-center w-[250px]">
+
+            <h2 class="font-semibold text-xl">
+                @Cart.ProductName
+            </h2>
+            <p class="font-semibold text-sm"><span class="text-gray-600">Price: </span>Php. @Cart.Price .00</p>
+        </div>
+    </div>
+
+    @* <div class="flex gap-3 justify-end  items-center">
+        <button class="p-2 font-bold text-lg" @onclick="() => DecrementQuantity(Cart)"> - </button>
+        <span class="font-semibold text-xl">@Cart.Quantity</span>
+        <button class="p-2 font-bold text-lg" @onclick="() => IncrementQuantity(Cart)"> + </button>
+    </div> *@
+
+
+    <div class="px-10 flex gap-3">
+        <div class="gap-2 flex items-center">
+            <label for="countries" class="block mb-2 text-sm font-medium text-gray-600">Size: </label>
+            <select id="countries" class="bg-gray-50 border border-gray-200 text-gray-900 text- rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2">
+                <option selected>@Cart.Size</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <h1 class="text-gray-600 ">Total: <span class="font-semibold">@($"{Cart.Quantity * Cart.Price}")</span></h1>
+    </div>
+
+</div>

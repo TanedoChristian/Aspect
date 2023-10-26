@@ -13,8 +13,7 @@ namespace AspectUI.Pages
         public Cart Cart { get; set; }
         public static decimal SubTotal {get; set;}
 
-
-
+        public string SelectedSize { get; set; }
 
         private async Task LoadCartAsync()
         {
@@ -39,7 +38,10 @@ namespace AspectUI.Pages
         }
 
 
-      
+        private void HandleSelectedSize(ChangeEventArgs e)
+        {
+            Console.WriteLine(e.Value.ToString());
+        }
 
         private async Task DecrementQuantity(Cart cart)
         {

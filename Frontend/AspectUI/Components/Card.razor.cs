@@ -68,6 +68,7 @@ namespace AspectUI.Components
                 ProductName = Name,
                 Price = Price,
                 Quantity = 1,
+                Size = "XS",
                 UserId = 1,
                 ProductImage = Photos[0].PhotoUrl
             };

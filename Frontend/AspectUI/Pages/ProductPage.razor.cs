@@ -1,7 +1,11 @@
 ﻿using AspectUI.Components;
 using AspectUI.Models;
 using AspectUI.Services.ProductService;
+using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Components;
+using System.Xml.Linq;
+using CurrieTechnologies.Razor.SweetAlert2;
+using AspectUI.Services.CartService;
 
 namespace AspectUI.Pages
 {
@@ -15,11 +19,17 @@ namespace AspectUI.Pages
 
         public int Quantity { get; set; } = 1;
 
-       
+        public List<string> SizeOptions = new List<string> { "XS", "S", "M", "L" };
 
+        public string SelectedOption = "XS";
+
+        [Inject]
+        private SweetAlertService Swal { get; set; }
 
         [Inject]
         public IProductService _productService { get; set; }
+        [Inject]
+        public ICartService _cartService { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -51,6 +61,40 @@ namespace AspectUI.Pages
             {
                 Quantity--;
             }
+        }
+
+        public void HandleSelectedSize(string option)
+        {
+            SelectedOption = option;
+            Console.WriteLine(SelectedOption);
+        }
+
+
+        protected async Task AddToCart()
+        {
+
+            await Swal.FireAsync(new SweetAlertOptions
+            {
+                Title = "Product Added",
+                Icon = SweetAlertIcon.Success,
+            });
+
+
+
+
+            var cart = new Cart()
+            {
+                ProductId = Product.Id,
+                ProductName = Product.Name,
+                Price = Product.Price,
+                Quantity = Quantity,
+                Size = SelectedOption,
+                UserId = 1,
+                ProductImage = Product.Photos[0].PhotoUrl
+        };
+
+
+            await _cartService.Create(cart);
         }
 
 

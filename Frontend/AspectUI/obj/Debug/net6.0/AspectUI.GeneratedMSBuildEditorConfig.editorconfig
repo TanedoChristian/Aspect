@@ -44,8 +44,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xIZWFkZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Full Scale/Documents/Projects/Aspect/Frontend/AspectUI/Components/ProductCart.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9kdWN0Q2FydC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Full Scale/Documents/Projects/Aspect/Frontend/AspectUI/Components/ProductCartContainer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9kdWN0Q2FydENvbnRhaW5lci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Full Scale/Documents/Projects/Aspect/Frontend/AspectUI/Components/Review.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSZXZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Full Scale/Documents/Projects/Aspect/Frontend/AspectUI/Components/ReviewForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSZXZpZXdGb3JtLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Full Scale/Documents/Projects/Aspect/Frontend/AspectUI/Components/SideNav.razor]
