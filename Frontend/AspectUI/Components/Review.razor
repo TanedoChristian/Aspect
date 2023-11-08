@@ -48,13 +48,11 @@
                                     </svg>
                                 </div>
                                 <p>
-                                    <span class="font-semibold mr-1">150</span>reviews
+                                    <span class="font-semibold mr-1">@Reviews.Count()</span>reviews
                                 </p>
                             </div>
 
-                            <button class="bg-white font-semibold mt-3 py-2 px-6 rounded-xl shadow-md" @onclick="ToggleReviewModal">
-                                Write a review
-                            </button>
+                       
                         </div>
                     </div>
                     <div class="w-1/2 ">
@@ -64,10 +62,13 @@
                                     <dd class="flex items-center mb-3 justify-around font-semibold text-sm">
                                         5 Star
                                         <div class=" bg-gray-300 rounded h-2.5 w-[70%] mr-2">
-                                            <div class="bg-yellow-400 h-2.5 rounded  w-[89%]"></div>
+                                            
+                                            <div class="bg-yellow-400 h-2.5 rounded    w-[67%] "></div>
+                                            
                                         </div>
                                         <span class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                                            (10)
+                                         
+                                            @(Reviews.Where(review => review.ReviewStar == 5)?.Count() ?? 0)
                                         </span>
                                     </dd>
                                 </dl>
@@ -78,7 +79,7 @@
                                             <div class="bg-yellow-400 h-2.5 rounded  w-[30%]"></div>
                                         </div>
                                         <span class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                                            (10)
+                                            @(Reviews.Where(review => review.ReviewStar == 4)?.Count() ?? 0)
                                         </span>
                                     </dd>
                                 </dl>
@@ -89,7 +90,7 @@
                                             <div class="bg-yellow-400 h-2.5 rounded  w-[89%]"></div>
                                         </div>
                                         <span class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                                            (10)
+                                            @(Reviews.Where(review => review.ReviewStar == 3)?.Count() ?? 0)
                                         </span>
                                     </dd>
                                 </dl>
@@ -100,7 +101,7 @@
                                             <div class="bg-yellow-400 h-2.5 rounded  w-[19%]"></div>
                                         </div>
                                         <span class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                                            (10)
+                                            @(Reviews.Where(review => review.ReviewStar == 2)?.Count() ?? 0)
                                         </span>
                                     </dd>
                                 </dl>
@@ -108,10 +109,10 @@
                                     <dd class="flex items-center mb-3 justify-around font-semibold text-sm">
                                         1 Star
                                         <div class=" bg-gray-300 rounded h-2.5 w-[70%] mr-2">
-                                            <div class="bg-yellow-400 h-2.5 rounded  w-[89%]"></div>
+                                            <div class="bg-yellow-400 h-2.5 rounded w-[75%]"></div>
                                         </div>
                                         <span class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                                            (10)
+                                            @(Reviews.Where(review => review.ReviewStar == 1)?.Count() ?? 0)
                                         </span>
                                     </dd>
                                 </dl>
@@ -145,26 +146,34 @@
                                 <p class="text-xl md:text-2xl font-medium leading-normal text-gray-800">
                                     @review.ReviewTitle
                                 </p>
-                                <button class="ml-4 md:hidden"></button>
+
+                                <p class="flex gap-2 items-center font-bold">
+                                    @review.ReviewStar
+                                    <svg class="w-4 h-4 text-yellow-500"
+                                         aria-hidden="true"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         fill="currentColor"
+                                         viewBox="0 0 22 20">
+                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                    </svg>
+                                </p>
+
+                                
                             </div>
                         </div>
 
                         <div>
+                            <div class="flex gap-3">
+
                             <p class="mt-3 text-base leading-normal text-gray-600 w-full md:w-9/12 xl:w-5/6">
                                @review.Review
                             </p>
-                            <div class="flex gap-5">
-                                <div>
-                                    <img src="https://i.ibb.co/QXzVpHp/vincent-wachowiak-8g-Cm-EBVl6a-I-unsplash-1.png"
-                                         alt="chair-1"
-                                         class="w-20 h-20" />
-                                </div>
-                                <div>
-                                    <img src="https://i.ibb.co/QXzVpHp/vincent-wachowiak-8g-Cm-EBVl6a-I-unsplash-1.png"
-                                         alt="chair-1"
-                                         class="w-20 h-20" />
-                                </div>
+
+                            
+
                             </div>
+    
+
                             <p class="p-3 font-bold">@review.CustomerName</p>
                         </div>
                     </div>

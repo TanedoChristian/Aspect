@@ -35,9 +35,9 @@ namespace AspectUI.Services.CartService
             return JsonSerializer.Deserialize<IEnumerable<Cart>>(await _client.GetStreamAsync($"api/cart/user/{id}"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
 
-        public Task<IEnumerable<Cart>> GetAll()
+        public async Task<IEnumerable<Cart>> GetAll()
         {
-            throw new NotImplementedException();
+            return JsonSerializer.Deserialize<IEnumerable<Cart>>(await _client.GetStreamAsync($"api/cart"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
 
         public Task<Cart> GetById(int id)
@@ -55,6 +55,11 @@ namespace AspectUI.Services.CartService
                );
             await _client.PutAsync($"api/cart/{entity.Id}", content);
 
+        }
+
+        public async Task<IEnumerable<Cart>> GetPendingByUser(int id)
+        {
+            return JsonSerializer.Deserialize<IEnumerable<Cart>>(await _client.GetStreamAsync($"api/cart/user/pending/{id}"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
     }
 }

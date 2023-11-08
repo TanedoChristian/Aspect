@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BCrypt.Net;
 using Microsoft.AspNetCore.Mvc;
 using UserApi.Dto;
 using UserApi.Entities;
@@ -36,20 +37,34 @@ namespace UserApi.Controllers
             return Ok(user);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddUser(IEnumerable<UserDto> userDto)
+        [HttpPost("login")]
+        
+        public async Task <IActionResult> Login(LoginDto loginDto)
         {
-            /*if(userDto == null)
+            var user = await _userRepository.GetUserByEmail(loginDto.Email);
+
+
+            if(user == null)
             {
                 return BadRequest();
-            }*/
-            foreach(var c in userDto)
-            {
-                var user = _mapper.Map<User>(userDto);
-
-                await _userRepository.Create(user);
             }
-            
+
+            if(BCrypt.Net.BCrypt.Verify(loginDto.Password, user.Password))
+            {
+                return Ok(user);
+            }
+
+            return BadRequest();
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddUser(UserDto userDto)
+        {
+                var user = _mapper.Map<User>(userDto);
+                user.Type = "user";
+                user.Password = BCrypt.Net.BCrypt.HashPassword(userDto.Password);
+                await _userRepository.Create(user);
             return Ok();    
         }
 

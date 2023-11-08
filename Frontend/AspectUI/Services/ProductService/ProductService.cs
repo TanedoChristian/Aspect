@@ -1,5 +1,6 @@
 ﻿using AspectUI.Models;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 
 namespace AspectUI.Services.ProductService
@@ -21,9 +22,9 @@ namespace AspectUI.Services.ProductService
             throw new NotImplementedException();
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            await _httpClient.DeleteAsync($"api/product/{id}");
         }
 
         public async Task<IEnumerable<Product>> GetAll()

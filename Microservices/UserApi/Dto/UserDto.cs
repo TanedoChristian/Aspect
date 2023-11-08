@@ -12,7 +12,13 @@ namespace UserApi.Dto
         public string Phone { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public AddressDto Address { get; set; }
+
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string PostalCode { get; set; }
+      
+       
+       
 
     }
 }

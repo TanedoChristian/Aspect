@@ -9,11 +9,45 @@
 
             @if(Carts.Count() == 0)
             {
-                <EmptyCart />
+                <EmptyCart Message="Empty Cart"/>
             } else
             {
+
+               
+                        <ul class="flex justify-end gap-3 p-3">
+                            <li class="flex items-center space-x-3 text-left sm:space-x-4">
+                                <a class="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-200 text-xs font-semibold text-emerald-700" href="/shop/all">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </a>
+                                <span class="font-semibold text-gray-900">Shop</span>
+                            </li>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                            <li class="flex items-center space-x-3 text-left sm:space-x-4">
+                                <a class="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-200 text-xs font-semibold text-emerald-700" href="/cart">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </a>
+                                <span class="font-semibold text-gray-900">Cart</span>
+                            </li>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                            <li class="flex items-center space-x-3 text-left sm:space-x-4">
+                                <a class="flex h-6 w-6 items-center justify-center rounded-full bg-gray-600 text-xs font-semibold text-white ring ring-gray-600 ring-offset-2">3</a>
+                                <span class="font-semibold text-gray-900">Payment</span>
+                            </li>
+                            
+                        </ul>
+                   
+
+
                 <div class="w-full flex justify-between  relative">
-                    <div class="w-[60%] flex flex-col bg-white p-3 shadow-md rounded-md h-[80vh] overflow-y-auto">
+                    <div class="w-[55%] flex flex-col bg-white p-3 shadow-md rounded-md h-[80vh] overflow-y-auto">
                         @foreach (var cart in Carts)
                         {
                             <div class="flex justify-between items-center relative p-3 ">
@@ -62,31 +96,72 @@
 
 
                     </div>
-                    <div class="w-[30%]  p-5 bg-white max-h-[5000px] rounded-md shadow-md absolute top-0 right-0">
-                        <div>
-                            <h1 class="text-3xl font-bold">Total Amount </h1>
-                            <div class="m-5 p-3 flex justify-between border-b border-gray-300 ">
-                                <h2 class="text-gray-500 font-semibold"> Subtotal </h2>
-                                <p class="font-semibold"> Php @SubTotal .00</p>
+                    <div class="w-[35%] p-5 border border-gray-300 rounded-lg shadow-md">
+                        <p class="text-xl font-medium">Payment Details</p>
+                        <p class="text-gray-400">Complete your order by providing your payment details.</p>
+                        <div class="">
+                            <label for="email" class="mt-4 mb-2 block text-sm font-medium">Email</label>
+                            <div class="relative">
+                                <input type="text" id="email" name="email" @bind="User.Email" class="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="your.email@gmail.com" />
+                                <div class="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <label for="card-holder" class="mt-4 mb-2 block text-sm font-medium">Card Holder</label>
+                            <div class="relative">
+                                <div class="flex gap-3">
+                                    <input type="text" id="card-holder" @bind="User.FirstName" name="card-holder" class="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" />
+                                    <input type="text" id="card-holder" @bind="User.LastName" name="card-holder" class="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" />
+                                    </div>
+                            
+                                
+                            </div>
+                            <label for="card-no" class="mt-4 mb-2 block text-sm font-medium">Card Details</label>
+                            <div class="flex">
+                                <div class="relative w-7/12 flex-shrink-0">
+                                    <input type="text" id="card-no" name="card-no" @bind="UserPayment.CardNumber" class="w-full rounded-md border border-gray-200 px-2 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="xxxx-xxxx-xxxx-xxxx" />
+                                    <div class="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
+                                        <svg class="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M11 5.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1z" />
+                                            <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm13 2v5H1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm-1 9H2a1 1 0 0 1-1-1v-1h14v1a1 1 0 0 1-1 1z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <input type="text" name="credit-expiry" @bind="UserPayment.ExpiryNumber" class="w-full rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="MM/YY" />
+                                <input type="text" name="credit-cvc" @bind="UserPayment.CVC" class="w-1/6 flex-shrink-0 rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="CVC" />
+                            </div>
+                            <label for="billing-address" class="mt-4 mb-2 block text-sm font-medium">Billing Address</label>
+                            <div class="flex gap-3">
+                                <div class="relative flex-shrink-0 sm:w-7/12">
+                                    <input type="text" id="billing-address" name="billing-address" @bind="UserPayment.StreetAddress" class="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Street Address" />
+                                    <div class="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
+                                        <img class="h-4 w-4 object-contain" src="https://cdn-icons-png.flaticon.com/512/555/555603.png" alt="" />
+                                    </div>
+                                </div>
+                                <input type="text" name="billing-zip" @bind="UserPayment.ZipCode" class="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="ZIP" />
                             </div>
 
-                            <div class="m-5 p-3 flex justify-between border-b border-gray-300">
-                                <h2 class="text-gray-500 font-semibold">Shipping Fee</h2>
-                                <p class="font-semibold">Php 99.00</p>
+                        
+                            <div class="mt-6 border-t border-b py-2">
+                                <div class="flex items-center justify-between">
+                                    <p class="text-sm font-medium text-gray-900">Subtotal</p>
+                                    <p class="font-semibold text-gray-900">Php @SubTotal .00</p>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <p class="text-sm font-medium text-gray-900">Shipping</p>
+                                    <p class="font-semibold text-gray-900">Php 99.00</p>
+                                </div>
                             </div>
-
-                            <div class="m-5 p-3 flex justify-between">
-                                <h2 class="font-semibold"> Order Total </h2>
-                                <p class="font-semibold">Php @($"{SubTotal + 99}").00</p>
-                            </div>
-
-                            <div class="">
-                                <button class="bg-black text-white w-full p-4 rounded-md shadow-xl">
-                                    Checkout
-                                </button>
+                            <div class="mt-6 flex items-center justify-between">
+                                <p class="text-sm font-medium text-gray-900">Total</p>
+                                <p class="text-2xl font-semibold text-gray-900">Php @($"{SubTotal + 99}").00</p>
                             </div>
                         </div>
+                        <button class="mt-4 mb-8 w-full rounded-md bg-black px-6 py-3 font-medium text-white" @onclick="CheckOut">Place Order</button>
                     </div>
+                  
                 </div>
 
             }

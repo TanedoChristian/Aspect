@@ -61,12 +61,19 @@ namespace CartApi.Controller
         }
 
 
+        [HttpGet("user/pending/{id}")]
+        public async Task<IActionResult> GetPendingCartByUser(int id)
+        {
+            return Ok(await _cartRepository.GetPendingByUserId(id));
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> AddCart(CartDto cartDto)
         {
             var cartToCompare = await _cartRepository.GetByUserId(cartDto.UserId);
 
-            var existingCart = cartToCompare.FirstOrDefault(c => c.ProductId == cartDto.ProductId);
+            var existingCart = cartToCompare.FirstOrDefault(c => c.ProductId == cartDto.ProductId && c.Size == cartDto.Size);
 
             if (existingCart != null)
             {

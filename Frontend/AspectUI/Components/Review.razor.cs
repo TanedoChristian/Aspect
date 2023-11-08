@@ -17,11 +17,8 @@ namespace AspectUI.Components
         [Inject]
         IReviewService _reviewService {  get; set; }
 
-
-
-        protected override async Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
         {
-
 
             await LoadReviewAsync();
             await base.OnInitializedAsync();

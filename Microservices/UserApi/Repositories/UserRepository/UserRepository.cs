@@ -14,6 +14,9 @@ namespace UserApi.Repositories.UserRepository
         }
         public async Task Create(User entity)
         {
+
+            
+
             await _context.Users.AddAsync(entity);
             await _context.SaveChangesAsync();
         }
@@ -23,6 +26,14 @@ namespace UserApi.Repositories.UserRepository
             _context.Users.Remove(entity);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<User> GetUserByEmail(string email) {
+
+
+            return await _context.Users.FirstOrDefaultAsync(user => user.Email == email);
+        }
+
+
 
         public async Task<IEnumerable<User>> GetAll()
         {

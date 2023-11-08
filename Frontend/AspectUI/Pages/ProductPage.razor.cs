@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Components;
 using System.Xml.Linq;
 using CurrieTechnologies.Razor.SweetAlert2;
 using AspectUI.Services.CartService;
+using Blazored.LocalStorage;
 
 namespace AspectUI.Pages
 {
@@ -16,6 +17,9 @@ namespace AspectUI.Pages
         public Product Product { get; set; }
 
         public string MainImage { get; set; }
+
+        [Inject]
+        ILocalStorageService localStorageService { get; set; }
 
         public int Quantity { get; set; } = 1;
 
@@ -31,6 +35,7 @@ namespace AspectUI.Pages
         [Inject]
         public ICartService _cartService { get; set; }
 
+        
 
         public bool ShowReviewModal = false;
 
@@ -57,14 +62,44 @@ namespace AspectUI.Pages
             MainImage = photo;
         }
 
-        private void HandleQuantity(string action)
+        private async Task HandleQuantity(string action)
         {
             if(action == "increase")
             {
-                Quantity++;
+                if (Quantity == Product.Quantity)
+                {
+                    await Swal.FireAsync(new SweetAlertOptions()
+                    {
+                        Title = "Out of Stock",
+                        Icon = SweetAlertIcon.Info
+
+                    });
+
+                    Quantity = Product.Quantity;
+                } else
+                {
+                    Quantity++;
+                }
             } else
             {
-                Quantity--;
+                if (Quantity == 0)
+                {
+
+                    await Swal.FireAsync(new SweetAlertOptions()
+                    {
+                        Title = "Invalid Amount",
+                        Icon = SweetAlertIcon.Info
+
+                    });
+
+                    Quantity = 0;
+                } else
+                {
+                    Quantity--;
+                }
+                
+
+               
             }
         }
 
@@ -93,8 +128,9 @@ namespace AspectUI.Pages
                 ProductName = Product.Name,
                 Price = Product.Price,
                 Quantity = Quantity,
+                Status = "pending",
                 Size = SelectedOption,
-                UserId = 1,
+                UserId = await localStorageService.GetItemAsync<int>("userid"),
                 ProductImage = Product.Photos[0].PhotoUrl
         };
 

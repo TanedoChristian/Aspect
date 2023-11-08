@@ -6,7 +6,19 @@
         <main class="p-5 flex  w-full justify-between px-10 ">
             <div>
                 <h1 class="text-3xl font-bold text-gray-800">Product View</h1>
-                <div class="relative overflow-x-auto shadow-md border border-gray-200 rounded-xl  max-h-[650px]">
+
+
+                <div>
+                    <select id="countries" class="bg-gray-50 border border-gray-200 text-gray-900 t focus:ring-blue-500 focus:border-blue-500 block p-2" @onchange="HandleCategory">
+                        <option selected value="all">All</option>
+                        <option value="Men">Men</option>
+                        <option value="Women">Women</option>
+                        
+                    </select>
+                </div>
+
+
+                <div class="relative overflow-x-auto shadow-md border border-gray-200   max-h-[90vh]">
                     <table class="text-sm text-left text-gray-500">
                         <thead class="text-xs text-gray-700 uppercase">
                             <tr>
@@ -28,11 +40,14 @@
                                 <th scope="col" class="px-6 py-3">
                                     Price
                                 </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Actions
+                                </th>
                             </tr>
                         </thead>
                         <tbody class="">
                           
-                                @foreach(var product in Products)
+                                @foreach(var product in FilteredProducts)
                             {
                                 <tr class="bg-white border-b text-black">
                                     <td class="px-6 py-4">@product.Id</td>
@@ -50,6 +65,15 @@
                                     <td class="px-6 py-4 font-bold text-blue-500 ">
                                         Php @product.Price .00
                                     </td>
+
+                                    <td class="px-6 py-4">
+                                        <i class="fa-solid fa-pencil text-black"></i>
+                                        <button class="ml-2" @onclick="() => DeleteProduct(product.Id)">
+                                            <i class="fa-solid fa-trash text-red-500"></i>
+                                        </button>
+                                    </td>
+                                  
+
                                 </tr>
                             }
                            
@@ -62,7 +86,7 @@
             <div>
                 <div class="relative px-4 sm:px-6 lg:px-8 max-w-lg mx-auto"></div>
 
-                <div class="w-[450px]">
+                <div class="">
                     <div class="bg-white px-8 pb-6 rounded-b shadow-lg p-5">
                         <h1 class="text-3xl font-bold">Add Product </h1>
 

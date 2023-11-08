@@ -64,6 +64,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaWRlTmF2LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Full Scale/Documents/Projects/Aspect/Frontend/AspectUI/Pages/admin/Analytics.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWRtaW5cQW5hbHl0aWNzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Full Scale/Documents/Projects/Aspect/Frontend/AspectUI/Pages/admin/OrderAdmin.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWRtaW5cT3JkZXJBZG1pbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Full Scale/Documents/Projects/Aspect/Frontend/AspectUI/Pages/admin/ProductAdmin.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWRtaW5cUHJvZHVjdEFkbWluLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -80,8 +88,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Full Scale/Documents/Projects/Aspect/Frontend/AspectUI/Pages/Orders.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Full Scale/Documents/Projects/Aspect/Frontend/AspectUI/Pages/ProductPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdFBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Full Scale/Documents/Projects/Aspect/Frontend/AspectUI/Pages/Rate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmF0ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Full Scale/Documents/Projects/Aspect/Frontend/AspectUI/Pages/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Full Scale/Documents/Projects/Aspect/Frontend/AspectUI/Pages/Ship.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hpcC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Full Scale/Documents/Projects/Aspect/Frontend/AspectUI/Pages/Shop.razor]

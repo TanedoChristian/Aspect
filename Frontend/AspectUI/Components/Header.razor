@@ -1,5 +1,8 @@
 ﻿<header class="p-5 w-full h-[8vh] flex justify-between items-center shadow-md border-b border-gray-100 bg-white">
-      <h1 class="text-3xl font-bold"> ASPECT</h1>
+    <a href="/shop/all">
+        <h1 class="text-3xl font-bold"> ASPECT</h1>
+</a>
+     
       <div class="flex gap-5 items-center ">
         <input type="text"
                class="bg-gray-100 rounded-sm h-[80%] p-2 mobile:block hidden"
@@ -8,21 +11,25 @@
                @oninput="HandleChange"
          />
 
-        <span class="material-symbols-outlined text-3xl text-slate-800 mobile:block hidden">
-          person
-        </span>
+        
         <div class="mobile:hidden block">
             <i class="fa-solid fa-bars" ></i>
         </div>
        
         @if(!IsEmpty)
         {
-            <i class="fa-solid fa-heart cursor-pointer"></i>
+            
             <a href="/cart">
                 <i class="fa-solid fa-cart-shopping cursor-pointer"></i>
             </a>
            
         }
+        <a href="/orders">
+            <span class="material-symbols-outlined text-3xl text-slate-800 mobile:block hidden cursor-pointer">
+                person
+            </span>
+            </a>
+       
        
           
       

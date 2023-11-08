@@ -100,6 +100,9 @@ namespace Aspect.ProductAPI.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("ReviewStar")
+                        .HasColumnType("integer");
+
                     b.Property<string>("ReviewTitle")
                         .IsRequired()
                         .HasColumnType("text");
@@ -107,6 +110,29 @@ namespace Aspect.ProductAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ProductReviews");
+                });
+
+            modelBuilder.Entity("Aspect.ProductAPI.Entities.Size", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("ProductSize")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductSize");
                 });
 
             modelBuilder.Entity("Aspect.ProductAPI.Entities.ProductPhoto", b =>

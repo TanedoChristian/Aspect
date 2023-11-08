@@ -17,6 +17,9 @@ namespace Aspect.ProductAPI.Data
 
     public DbSet<ProductReview> ProductReviews { get; set; }
 
+    public DbSet<Size> ProductSize {get; set; }
+
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

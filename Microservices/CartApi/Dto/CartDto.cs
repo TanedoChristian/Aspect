@@ -9,6 +9,7 @@
         public string ProductImage {get; set; }
         public int UserId { get; set; }
         public int Quantity { get; set; }
+        public string Status {get; set;}
         public decimal TotalPrice => Price * Quantity;
     }
 }

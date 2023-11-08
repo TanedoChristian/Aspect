@@ -9,24 +9,27 @@
                         <h2 class="mb-8 text-2xl text-cyan-900 font-bold">
                             Sign In
                         </h2>
-                        <form class="">
+                        <h1 class="text-red-500 font-semibold"> @Error </h1>
+                        <div class="">
                             <div class="flex flex-col gap-5 ">
                                 <div>
                                     <label class="text-slate-700">
-                                        Email or Username
+                                        Email 
                                     </label>
                                     <input type="text"
+                                            @bind="Email"
                                            placeholder="Username"
-                                           class="p-3 border-2  border-gray-300 rounded-xl w-full" />
+                                           class="p-3 border-2  border-gray-300 rounded-md w-full" />
                                 </div>
                                 <div>
                                     <label class="text-slate-700">Password </label>
-                                    <input type="text"
-                                           placeholder="Username"
-                                           class="p-3 border-2  border-gray-300 rounded-xl w-full" />
+                                    <input type="password"
+                                        @bind="Password"
+                                           placeholder="Password"
+                                           class="p-3 border-2  border-gray-300 rounded-md w-full" />
                                 </div>
 
-                                <button class="group h-12 px-6  rounded-full transition duration-300 bg-black text-white
+                                <button @onclick="LoginUser" class="group h-12 px-6  rounded-full transition duration-300 bg-black text-white
 ">
                                     <div class="relative flex items-center space-x-4 justify-center">
                                         <span class="block w-max font-semibold tracking-wide text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
@@ -35,54 +38,18 @@
                                     </div>
                                 </button>
                             </div>
-                        </form>
+                        </div>
                         <p class="text-sm font-light">
                             Don’t have an account yet?
-                            <a href="#"
+                            <a href="/register"
                                class="font-medium text-blue-500 hover:underline dark:text-primary-500">
                                 Sign up
                             </a>
                         </p>
                     </div>
-                    <div class="mt-16 grid space-y-4">
-                        <button class="group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300
- hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
-                            <div class="relative flex items-center space-x-4 justify-center">
-                                <img src="https://tailus.io/sources/blocks/social/preview/images/google.svg"
-                                     class="absolute left-0 w-5"
-                                     alt="google logo" />
-                                <span class="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
-                                    Continue with Google
-                                </span>
-                            </div>
-                        </button>
+                   
 
-                        <button class="group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300
-                                     hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
-                            <div class="relative flex items-center space-x-4 justify-center">
-                                <img src="https://upload.wikimedia.org/wikipedia/en/0/04/Facebook_f_logo_%282021%29.svg"
-                                     class="absolute left-0 w-5"
-                                     alt="Facebook logo" />
-                                <span class="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
-                                    Continue with Facebook
-                                </span>
-                            </div>
-                        </button>
-                    </div>
-
-                    <div class="mt-32 space-y-4 text-gray-600 text-center sm:-mb-8">
-                        <p class="text-xs">
-                            By proceeding, you agree to our{" "}
-                            <a href="#" class="underline">
-                                Terms of Use
-                            </a>{" "}
-                            and confirm you have read our{" "}
-                            <a href="#" class="underline">
-                                Privacy and Cookie Statement
-                            </a>
-                            .
-                        </p>
-                    </div>
+                    
                 </div>
             </div>
         </div>

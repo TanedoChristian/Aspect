@@ -30,6 +30,9 @@ namespace AspectUI.Components
         public decimal Price { get; set; }
         [Parameter]
         public int Quantity { get; set; }
+
+        [Inject]
+        ILocalStorageService localStorageService { get; set; }
         [Parameter]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         [Parameter]
@@ -67,9 +70,10 @@ namespace AspectUI.Components
                 ProductId = Id,
                 ProductName = Name,
                 Price = Price,
+                Status = "pending",
                 Quantity = 1,
                 Size = "XS",
-                UserId = 1,
+                UserId = await localStorageService.GetItemAsync<int>("userid"),
                 ProductImage = Photos[0].PhotoUrl
             };
 

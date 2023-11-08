@@ -26,11 +26,15 @@ namespace AspectUI.Pages.admin
 
         public IEnumerable<Product> Products { get; set; }
 
+
+        public IEnumerable<Product> FilteredProducts { get; set; }
+
         public ProductDto Product { get; set; } = new ProductDto();
 
         private  List<IBrowserFile> selectedFiles = new List<IBrowserFile>();
 
         
+        public string Category { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -43,6 +47,21 @@ namespace AspectUI.Pages.admin
         private async Task LoadProductsAsync()
         {
             Products = await _productService.GetAll();
+            FilteredProducts = Products;
+        }
+
+        public async Task HandleCategory(ChangeEventArgs e)
+        {
+            Category = e.Value.ToString();
+
+            if(Category == "all")
+            {
+                FilteredProducts = Products;
+            } else
+            {
+                FilteredProducts = Products.Where(c => c.Gender == Category).ToList();
+            }
+
         }
 
       
@@ -71,12 +90,8 @@ namespace AspectUI.Pages.admin
 
             var responseContent = await response.Content.ReadAsStringAsync();
             var uploadResponse = JsonSerializer.Deserialize<Product>(responseContent, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
-
             int id = uploadResponse.Id;
-
             using var httpClient = new HttpClient();
-
-
             var formData = new MultipartFormDataContent();
             formData.Add(new StringContent(id.ToString()), "id");
 
@@ -91,12 +106,10 @@ namespace AspectUI.Pages.admin
                     FileName = selectedFile.Name
                 };
                 formData.Add(fileContent);
-                
             }
 
             await httpClient.PostAsync("http://localhost:5140/api/Photos", formData);
-
-        
+            
 
             await Swal.FireAsync(new SweetAlertOptions
             {
@@ -104,11 +117,48 @@ namespace AspectUI.Pages.admin
                 Icon = SweetAlertIcon.Success,
             });
 
+
+
+
+            await LoadProductsAsync();
+
             Product = new ProductDto();
             selectedFiles = null;
 
-            await OnInitializedAsync();
-           
+
+        }
+
+        public async Task DeleteProduct(int id)
+        {
+            SweetAlertResult result = await Swal.FireAsync(new SweetAlertOptions
+            {
+                Title = "Are you Sure?",
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Yes",
+                CancelButtonText = "No"
+
+            });
+
+
+            await _productService.Delete(id);
+
+            if (!string.IsNullOrEmpty(result.Value))
+            {
+
+               
+
+                await Swal.FireAsync(
+                  "Deleted",
+                  "Product has been deleted.",
+                  SweetAlertIcon.Success
+                  );
+            }
+
+
+            await LoadProductsAsync();
+
+
         }
 
     }

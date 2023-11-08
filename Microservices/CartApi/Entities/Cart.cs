@@ -15,6 +15,8 @@ namespace CartApi.Entities
         public int UserId { get; set; }
         public int Quantity { get; set; }
         public string Size {get; set;}
+
+        public string Status {get; set;}
         public decimal TotalPrice => Price * Quantity;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }

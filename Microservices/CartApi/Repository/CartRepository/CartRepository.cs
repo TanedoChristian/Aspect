@@ -40,6 +40,11 @@ namespace CartApi.Repository.CartRepository
             return await _context.Carts.Where(c => c.UserId == id).ToListAsync();
         }
 
+        public async Task<IEnumerable<Cart>> GetPendingByUserId(int id)
+        {
+            return await _context.Carts.Where(c => c.UserId == id &&  c.Status == "pending").ToListAsync();
+        }
+
         public async Task Update(Cart entity)
         {
             _context.Carts.Update(entity);

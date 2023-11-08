@@ -1,0 +1,140 @@
+﻿
+@page "/register"
+
+
+<div class="relative py-16 bg-gradient-to-br from-sky-50 to-gray-200 h-[100vh]">
+    <div class="relative container m-auto px-6 text-gray-500 md:px-12 xl:px-40">
+        <div class="m-auto md:w-8/12 lg:w-6/12 xl:w-6/12">
+            <div class="rounded-md bg-white shadow-xl">
+                <div class="p-6 sm:p-16">
+                    <div class="space-y-4">
+                        <h2 class="mb-8 text-2xl text-cyan-900 font-bold">
+                            Sign Up
+                        </h2>
+                        <div>
+                            <div class="flex flex-col gap-5 ">
+                                <div class="flex gap-3">
+
+                                <div>
+                                    <label class="text-slate-800">
+                                        First Name
+                                    </label>
+                                    <input type="text"
+                                           @bind="User.FirstName"
+                                           placeholder="Username"
+                                           class="p-3 border-2  border-gray-300 rounded-md w-full" />
+                                </div>
+
+                                <div>
+                                    <label class="text-slate-800">
+                                        Last Name
+                                    </label>
+                                    <input type="text"
+                                            @bind="User.LastName"
+                                           placeholder="Lastname"
+                                           class="p-3 border-2  border-gray-300 rounded-md w-full" />
+                                </div>
+
+                                </div>
+                                <div class="flex gap-3">
+
+                               
+                                <div class="">
+                                    <label class="text-slate-800">
+                                        Email 
+                                    </label>
+                                    <input type="text"
+                                           placeholder="Username"
+                                           @bind="User.Email"
+                                           class="p-3 border-2  border-gray-300 rounded-md w-full" />
+                                </div>
+
+
+                                <div>
+                                    <label class="text-slate-800">
+                                         Username
+                                    </label>
+                                    <input type="text"
+                                           placeholder="Username"
+                                           @bind="User.Username"
+                                           class="p-3 border-2  border-gray-300 rounded-md w-full" />
+                                </div>
+                                </div>
+                                <div class="">
+                                    <label class="text-slate-800">
+                                        Password
+                                    </label>
+                                    <input type="password"
+                                           placeholder="Username"
+                                           @bind="User.Password"
+                                           class="p-3 border-2  border-gray-300 rounded-md w-full" />
+                                </div>
+
+                                <div class="">
+                                    <label class="text-slate-800">
+                                        Phone Number
+                                    </label>
+                                    <input type="text"
+                                           @bind="User.Phone"
+                                           placeholder="Phone Number"
+                                           class="p-3 border-2  border-gray-300 rounded-md w-full" />
+                                </div>
+
+
+                                <div class="flex gap-3">
+
+                                <div class="">
+                                    <label class="text-slate-800">
+                                        Street
+                                    </label>
+                                    <input type="text"
+                                           @bind="User.Street"
+                                           placeholder="Street"
+                                           class="p-3 border-2  border-gray-300 rounded-md w-full" />
+                                </div>
+
+
+
+
+
+                                <div>
+                                    <label class="text-slate-800">City </label>
+                                    <input type="text"
+                                            @bind="User.City"
+                                           placeholder="City"
+                                           class="p-3 border-2  border-gray-300 rounded-md w-full" />
+                                </div>
+
+                                  
+
+                                    <div>
+                                        <label class="text-slate-800">Postal Code </label>
+                                        <input type="text"
+                                               @bind="User.PostalCode"
+                                               placeholder="Postal Code"
+                                               class="p-3 border-2  border-gray-300 rounded-md w-full" />
+                                    </div>
+                                </div>
+
+                                <button @onclick="RegisterUser" class="group h-12 px-6  rounded-full transition duration-300 bg-black text-white 
+">
+                                    <div class="relative flex items-center space-x-4 justify-center">
+                                        <span class="block w-max font-semibold tracking-wide text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
+                                            Sign In
+                                        </span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+
+}

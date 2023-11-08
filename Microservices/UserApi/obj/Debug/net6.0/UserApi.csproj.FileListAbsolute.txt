@@ -164,3 +164,4 @@ C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\UserApi\obj\Debug\ne
 C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\UserApi\obj\Debug\net6.0\UserApi.pdb
 C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\UserApi\obj\Debug\net6.0\UserApi.genruntimeconfig.cache
 C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\UserApi\obj\Debug\net6.0\ref\UserApi.dll
+C:\Users\Full Scale\Documents\Projects\Aspect\Microservices\UserApi\bin\Debug\net6.0\BCrypt.Net-Core.dll

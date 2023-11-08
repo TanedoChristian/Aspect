@@ -9,7 +9,7 @@ namespace UserApi.Profiles
         public AutoMapper()
         {
             CreateMap<UserDto, User>().ReverseMap();
-            CreateMap<AddressDto, Address>().ReverseMap();
+          
         }
     }
 }

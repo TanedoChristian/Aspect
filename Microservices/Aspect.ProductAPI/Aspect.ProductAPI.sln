@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspect.ProductAPI", "Aspect.ProductAPI.csproj", "{664794DE-C3C1-4B69-BF44-E8DE238D7B59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspect.ProductAPI", "Aspect.ProductAPI.csproj", "{664794DE-C3C1-4B69-BF44-E8DE238D7B59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductUnitTest", "..\ProductUnitTest\ProductUnitTest.csproj", "{E4A3E2C2-A370-4FA1-8A1E-F749557ECC48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{664794DE-C3C1-4B69-BF44-E8DE238D7B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{664794DE-C3C1-4B69-BF44-E8DE238D7B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{664794DE-C3C1-4B69-BF44-E8DE238D7B59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4A3E2C2-A370-4FA1-8A1E-F749557ECC48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4A3E2C2-A370-4FA1-8A1E-F749557ECC48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4A3E2C2-A370-4FA1-8A1E-F749557ECC48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4A3E2C2-A370-4FA1-8A1E-F749557ECC48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

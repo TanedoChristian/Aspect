@@ -1,0 +1,38 @@
+﻿@page "/admin/analytics"
+
+
+<div class="flex">
+	<SideNav />
+
+	<div>
+		<div class="border border-gray-200 p-5">
+
+			<MudChart ChartType="ChartType.Bar" ChartSeries="@Series" XAxisLabels="@XAxisLabels" YAxisMin="0" YAxisMax="20" YAxisInterval="5" Width="100%" Height="350px">
+				<CustomGraphics>
+					<style>
+						.heavy {
+							font: bold 30px Helvetica;
+						}
+
+						.Rrrrr {
+							font: italic 40px Helvetica;
+							fill: rgb(62,44,221);
+						}
+					</style>
+
+				</CustomGraphics>
+			</MudChart>
+		</div>
+		</div>
+
+	
+
+</div>
+
+
+
+
+
+@code {
+	
+}
