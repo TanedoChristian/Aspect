@@ -26,8 +26,8 @@ async function consumeMessage() {
     const mailOptions = {
       from: "ctanedo@fullscale.io",
       to: emailContent.to,
-      subject: emailContent.subject,
-      text: "Product Added",
+      subject: "New User",
+      text: "Thank you for choosing Aspect",
     };
 
     try {

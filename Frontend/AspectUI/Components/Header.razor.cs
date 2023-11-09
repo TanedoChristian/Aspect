@@ -49,10 +49,6 @@ namespace AspectUI.Components
             string type = await localStorageService.GetItemAsync<string>("type");
 
 
-            
-           
-
-
             if (type == null)
             {
                 IsEmpty = true;

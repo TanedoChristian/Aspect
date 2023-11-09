@@ -41,6 +41,10 @@ namespace AspectUI.Pages.admin
 
         public bool ShowUpdateForm = false;
 
+
+
+
+
         protected override async Task OnInitializedAsync()
         {
 
@@ -85,50 +89,62 @@ namespace AspectUI.Pages.admin
         private async Task HandleSubmit()
         {
 
-            var content = new StringContent(
-            JsonSerializer.Serialize(Product),
-            Encoding.UTF8,
-            "application/json"
-            );  
-
-            var response = await _httpClient.PostAsync("http://localhost:5140/api/Product", content);
-
-            var responseContent = await response.Content.ReadAsStringAsync();
-            var uploadResponse = JsonSerializer.Deserialize<Product>(responseContent, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
-            int id = uploadResponse.Id;
-            using var httpClient = new HttpClient();
-            var formData = new MultipartFormDataContent();
-            formData.Add(new StringContent(id.ToString()), "id");
-
-            foreach (var selectedFile in selectedFiles)
+            Console.WriteLine(Product.Name);
+            if(string.IsNullOrEmpty(Product.Name) || Product.Quantity == 0 || selectedFiles.Count <=0)
             {
-                var fileStream = selectedFile.OpenReadStream();
-                
-                var fileContent = new StreamContent(fileStream);
-                fileContent.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data")
+                await Swal.FireAsync(new SweetAlertOptions()
                 {
-                    Name = "file",
-                    FileName = selectedFile.Name
-                };
-                formData.Add(fileContent);
+                    Title = "Incomplete Form",
+                    Icon = SweetAlertIcon.Warning
+                });
+            } else
+            {
+                var content = new StringContent(
+                 JsonSerializer.Serialize(Product),
+                 Encoding.UTF8,
+                 "application/json"
+         );
+
+                var response = await _httpClient.PostAsync("http://localhost:5140/api/Product", content);
+
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var uploadResponse = JsonSerializer.Deserialize<Product>(responseContent, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+                int id = uploadResponse.Id;
+                var httpClient = new HttpClient();
+                var formData = new MultipartFormDataContent();
+                formData.Add(new StringContent(id.ToString()), "id");
+
+                foreach (var selectedFile in selectedFiles)
+                {
+                    var fileStream = selectedFile.OpenReadStream();
+
+                    var fileContent = new StreamContent(fileStream);
+                    fileContent.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data")
+                    {
+                        Name = "file",
+                        FileName = selectedFile.Name
+                    };
+                    formData.Add(fileContent);
+                }
+
+                await httpClient.PostAsync("http://localhost:5140/api/Photos", formData);
+
+
+                await Swal.FireAsync(new SweetAlertOptions
+                {
+                    Title = "Product Added",
+                    Icon = SweetAlertIcon.Success,
+                });
+
+                await LoadProductsAsync();
+
+                Product = new ProductDto();
+                selectedFiles.Clear();
             }
 
-            await httpClient.PostAsync("http://localhost:5140/api/Photos", formData);
-            
+         
 
-            await Swal.FireAsync(new SweetAlertOptions
-            {
-                Title = "Product Added",
-                Icon = SweetAlertIcon.Success,
-            });
-
-
-
-
-            await LoadProductsAsync();
-
-            Product = new ProductDto();
-            selectedFiles = null;
+         
 
 
         }
@@ -171,7 +187,7 @@ namespace AspectUI.Pages.admin
             ShowUpdateForm = true;
         }
 
-        public async Task CloseModal()
+        public void CloseModal()
         {
          
             ShowUpdateForm = false;
@@ -188,6 +204,7 @@ namespace AspectUI.Pages.admin
             });
 
             await LoadProductsAsync();
+             CloseModal();
         }
 
     }

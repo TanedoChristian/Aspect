@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RabbitMQ.Client;
+using System.Text;
 using UserApi.Data;
 using UserApi.Entities;
 
@@ -13,13 +15,34 @@ namespace UserApi.Repositories.UserRepository
             _context = context;
         }
         public async Task Create(User entity)
-        {
+{
+    var factory = new ConnectionFactory() { HostName = "localhost" };
 
-            
+    using (var connection = factory.CreateConnection())
+    using (var channel = connection.CreateModel())
+    {
+        string queueName = "emailQueue";
 
-            await _context.Users.AddAsync(entity);
-            await _context.SaveChangesAsync();
-        }
+        channel.QueueDeclare(queue: queueName,
+                             durable: true,
+                             exclusive: false,
+                             autoDelete: false,
+                             arguments: null);
+
+        string messageBody = $"{{\"to\":\"{entity.Email}\",\"subject\":\"Hello from .NET\",\"text\":\"This is a test email from .NET!\"}}";
+        var body = Encoding.UTF8.GetBytes(messageBody);
+
+        channel.BasicPublish(exchange: "",
+                             routingKey: queueName,
+                             basicProperties: null,
+                             body: body);
+
+        Console.WriteLine($" [x] Sent email message: {messageBody}");
+    }
+
+    await _context.Users.AddAsync(entity);
+    await _context.SaveChangesAsync();
+}
 
         public async Task Delete(User entity)
         {
@@ -37,6 +60,13 @@ namespace UserApi.Repositories.UserRepository
 
         public async Task<IEnumerable<User>> GetAll()
         {
+
+
+         
+
+          
+
+
             return await _context.Users.ToListAsync();
         }
 

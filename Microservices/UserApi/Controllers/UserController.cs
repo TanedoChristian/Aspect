@@ -62,11 +62,22 @@ namespace UserApi.Controllers
         public async Task<IActionResult> AddUser(UserDto userDto)
         {
                 var user = _mapper.Map<User>(userDto);
-                user.Type = "admin";
+                user.Type = "user";
                 user.Password = BCrypt.Net.BCrypt.HashPassword(userDto.Password);
                 await _userRepository.Create(user);
             return Ok();    
         }
+
+
+        [HttpGet("/email/{email}")]
+        public async Task<IActionResult> AddUser(string email)
+        {
+            var user = await _userRepository.GetUserByEmail(email);
+
+            return Ok(user);
+        }
+
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, UserDto userDto)

@@ -20,7 +20,10 @@ namespace AspectUI.Services.UserService
                     Encoding.UTF8,
                     "application/json"
                 );
-            await _httpClient.PostAsync("api/user", content);
+             await _httpClient.PostAsync("api/user", content);
+
+
+         
         }
 
         public Task Delete(int id)
@@ -31,6 +34,11 @@ namespace AspectUI.Services.UserService
         public async Task<IEnumerable<User>> GetAll()
         {
             return JsonSerializer.Deserialize<IEnumerable<User>>(await _httpClient.GetStreamAsync($"api/user"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+        }
+
+        public async Task<User> GetByEmail(string email)
+        {
+            return JsonSerializer.Deserialize<User>(await _httpClient.GetStreamAsync($"api/user/email/{email}"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
 
         public async Task<User> GetById(int id)

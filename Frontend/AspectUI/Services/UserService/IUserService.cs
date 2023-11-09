@@ -6,5 +6,6 @@ namespace AspectUI.Services.UserService
     {
 
         Task<User> Login(string email, string password);
+        Task<User> GetByEmail(string email);
     }
 }

@@ -198,7 +198,10 @@
                                            
                                         </p>
                                     </div>
-                                    <InputFile OnChange="HandleSelection" multiple/>
+                                    <div style="position: relative; overflow: hidden; width: 0; height: 0;">
+                                        <InputFile OnChange="HandleSelection" multiple style="position: absolute; font-size: 100px; opacity: 0; right: 0; top: 0;" />
+                                    </div>
+
                                 </label>
 
 
@@ -264,6 +267,7 @@
                             <div class="mt-6">
                                 <div class="mb-4">
                                     <button 
+                                      
                                         @onclick="HandleSubmit"
                                         class="font-medium text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out w-full bg-black hover:bg-indigo-600 text-white focus:outline-none focus-visible:ring-2"
                                         >

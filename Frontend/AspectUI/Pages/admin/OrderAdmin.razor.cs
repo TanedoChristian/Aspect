@@ -60,6 +60,7 @@ namespace AspectUI.Pages.admin
             } else
             {
                 FilteredCarts = Carts.Where(c => c.Status == Category).ToList();
+
             }
 
             
@@ -82,7 +83,7 @@ namespace AspectUI.Pages.admin
             });
 
 
-            await LoadCarts();
+      
 
         }
 
