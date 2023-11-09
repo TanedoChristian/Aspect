@@ -1,5 +1,6 @@
 ﻿using AspectUI.Models;
 using AspectUI.Services.CartService;
+using AspectUI.Services.ProductService;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components;
 
@@ -14,6 +15,11 @@ namespace AspectUI.Pages
         [Inject]
         ILocalStorageService localStorageService { get; set; }
         IEnumerable<Cart> Carts { get; set; }
+
+        Product Product { get; set; }
+
+        [Inject]
+        IProductService productService { get; set; }
 
 
         protected override async Task OnInitializedAsync()
@@ -35,6 +41,12 @@ namespace AspectUI.Pages
             foreach(var  cart in Carts)
             {
                 cart.Status = "pending";
+
+
+                Product = await productService.GetById(cart.Id);
+                Product.Quantity = cart.Quantity;
+                await productService.Update(Product);
+
                 await cartService.Update(cart);
             }
 

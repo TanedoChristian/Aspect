@@ -50,6 +50,10 @@ namespace AspectUI.Components
 
         public ProductReview ProductReview { get; set; } = new ProductReview();
 
+        [Inject]
+        NavigationManager NavigationManager { get; set; }
+
+
         private int selectedRating = 3;
 
         private void HandleRatingChange(int newValue)
@@ -71,7 +75,7 @@ namespace AspectUI.Components
 
             await Swal.FireAsync(new SweetAlertOptions
             {
-                Title = "Review Addedd",
+                Title = "Review Added",
                 Icon = SweetAlertIcon.Success,
             });
 
@@ -88,6 +92,7 @@ namespace AspectUI.Components
                 await cartService.Update(cart);
             }
 
+            NavigationManager.NavigateTo("/shop/all");
 
             HandleModal();
         }

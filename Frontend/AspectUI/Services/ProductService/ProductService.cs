@@ -39,9 +39,14 @@ namespace AspectUI.Services.ProductService
 
         }
 
-        public Task Update(Product entity)
+        public async Task Update(Product entity)
         {
-            throw new NotImplementedException();
-        }
+			var content = new StringContent(
+				   JsonSerializer.Serialize(entity),
+				   Encoding.UTF8,
+				   "application/json"
+			   );
+			await _httpClient.PutAsync($"api/product/{entity.Id}", content);
+		}
     }
 }

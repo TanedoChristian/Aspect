@@ -30,10 +30,10 @@
         <EmptyCart Message="Empty Order"/>
     } else
     {
-         <div class="flex w-full justify-center">
         <div class="flex w-full justify-center">
+            <div class="flex w-full justify-center">
                 <div class="w-[55%] flex flex-col bg-white p-3  rounded-md h-[80vh] overflow-y-auto relative">
-                  
+
                     @foreach (var cart in Carts)
                     {
                         <div class="flex justify-between items-center relative p-3 ">
@@ -68,17 +68,17 @@
                         </div>
                     }
 
-                      <button class="py-2.5 px-6 bg-blue-600 text-white font-semibold bottom-0 right-0" @onclick="CancelOrder">
+                    @* <button class="py-2.5 px-6 bg-blue-600 text-white font-semibold bottom-0 right-0" @onclick="CancelOrder">
                         Cancel Order
-                    </button>
+                    </button> *@
 
 
                 </div>
-</div>
-        
-     
+            </div>
 
-    </div>
+
+
+        </div>
     }
 
    

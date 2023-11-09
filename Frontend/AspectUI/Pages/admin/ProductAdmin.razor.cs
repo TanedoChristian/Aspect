@@ -31,10 +31,15 @@ namespace AspectUI.Pages.admin
 
         public ProductDto Product { get; set; } = new ProductDto();
 
+
+        public Product ProductUpdate { get; set; } = new Product();
+
         private  List<IBrowserFile> selectedFiles = new List<IBrowserFile>();
 
         
         public string Category { get; set; }
+
+        public bool ShowUpdateForm = false;
 
         protected override async Task OnInitializedAsync()
         {
@@ -157,8 +162,32 @@ namespace AspectUI.Pages.admin
 
 
             await LoadProductsAsync();
+        }
 
 
+        public async Task ToggleUpdate(Product product)
+        {
+            ProductUpdate = product;
+            ShowUpdateForm = true;
+        }
+
+        public async Task CloseModal()
+        {
+         
+            ShowUpdateForm = false;
+        }
+
+        public async Task UpdateProduct()
+        {
+            await _productService.Update(ProductUpdate);
+
+            await Swal.FireAsync(new SweetAlertOptions()
+            {
+                Title = "Product Updated",
+                Icon = SweetAlertIcon.Success
+            });
+
+            await LoadProductsAsync();
         }
 
     }

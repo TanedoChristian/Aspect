@@ -1,10 +1,15 @@
-﻿<nav class="w-[230px] h-screen flex flex-col border-r border-gray-200 bg-[#f2f2f2] text-gray-800">
+﻿<nav class="w-[230px] h-screen flex flex-col border-r border-gray-200 bg-[#f2f2f2] text-gray-800 relative">
+      
+    
+
       <div class="p-5">
         <h1 class="text-3xl font-bold "> Aspect </h1>
       </div>
 
-      <div class="  p-3">
-        <ul class="flex flex-col gap-3 p-5 font-semibold ">
+      <div class="p-3">
+        <ul class="flex flex-col gap-3 p-5 font-semibold justify-between">
+            
+
           <li class="flex gap-3 items-center">
             <span class="material-symbols-outlined">apps</span>
             Dashboard
@@ -37,9 +42,23 @@
             <span class="material-symbols-outlined">layers</span>
             Orders
                 </a>
-          </li>
-
-         
+          </li>    
         </ul>
       </div>
+
+
+    <div class=" p-3 ">
+        <p class=" text-sm font-semibold">Settings</p>
+        <ul class="flex flex-col gap-3 p-5 font-semibold ">
+            <li class="flex gap-3 items-center">
+                <button @onclick="() => HandleLogin()" class="flex items-center gap-3">
+                    <i class="fa fa-sign-out cursor-pointer" aria-hidden="true"></i>
+                    <p>Logout</p>
+                </button>
+                
+            </li>
+        </ul>
+    </div>
+
+
     </nav>

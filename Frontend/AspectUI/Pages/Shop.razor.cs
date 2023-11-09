@@ -22,10 +22,12 @@ namespace AspectUI.Pages
             if(text == "")
             {
                 FilteredProducts = await _productService.GetAll();
-            } else
+				FilteredProducts = FilteredProducts.Where(c => c.Quantity > 0);
+			} else
             {
                 FilteredProducts = FilteredProducts.Where(c => c.Gender.ToLower().StartsWith(text.ToLower()));
-            }
+				FilteredProducts = FilteredProducts.Where(c => c.Quantity >0);
+			}
         }
 
       
@@ -40,18 +42,24 @@ namespace AspectUI.Pages
             if (Category != "all")
             {
                 FilteredProducts = await _productService.GetAll();
+                FilteredProducts = FilteredProducts.Where(c => c.Quantity >0);
                 FilteredProducts = FilteredProducts
                     .Where(c => c.Gender.ToLower() == Category.ToLower())
                     .ToList();
             }
             else
             {
-                FilteredProducts = await _productService.GetAll();
+				FilteredProducts = await _productService.GetAll();
+				FilteredProducts = FilteredProducts.Where(c => c.Quantity >0);
+				
             }
         }
 
         protected override async Task OnInitializedAsync()
         {
+
+
+
             await base.OnInitializedAsync();
         }
     }

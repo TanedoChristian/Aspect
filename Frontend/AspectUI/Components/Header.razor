@@ -15,6 +15,12 @@
         <div class="mobile:hidden block">
             <i class="fa-solid fa-bars" ></i>
         </div>
+
+        <a href="/orders">
+            <span class="material-symbols-outlined text-3xl text-slate-800 mobile:block hidden cursor-pointer">
+                person
+            </span>
+        </a>
        
         @if(!IsEmpty)
         {
@@ -22,16 +28,16 @@
             <a href="/cart">
                 <i class="fa-solid fa-cart-shopping cursor-pointer"></i>
             </a>
-           
         }
-        <a href="/orders">
-            <span class="material-symbols-outlined text-3xl text-slate-800 mobile:block hidden cursor-pointer">
-                person
-            </span>
-            </a>
-       
-       
-          
-      
-      </div>
+
+        <button @onclick="() => HandleLogin()">
+            <i class="fa fa-sign-out cursor-pointer" aria-hidden="true"></i>
+        </button>
+
+
+
+
+
+
+    </div>
     </header>

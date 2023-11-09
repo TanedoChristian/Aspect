@@ -33,48 +33,48 @@
         <EmptyCart Message="No Products to rate" />
     } else
     {
-         <div class="flex w-full justify-center">
         <div class="flex w-full justify-center">
-            <div class="w-[70%] flex flex-col bg-white p-3  rounded-md h-[80vh] overflow-y-auto relative">
+            <div class="flex w-full justify-center">
+                <div class="w-[70%] flex flex-col bg-white p-3  rounded-md h-[80vh] overflow-y-auto relative">
 
-                @foreach (var cart in Carts)
-                {
-                    <div class="flex justify-between items-center relative p-3 ">
+                    @foreach (var cart in Carts)
+                    {
+                        <div class="flex justify-between items-center relative p-3 ">
 
-                        <div class="flex gap-3 ">
-                            <div class="p-5 rounded-md">
-                                <img src=@($"http://localhost:5140/image/product/{cart.ProductImage}")
-                                     class="w-[100px]" />
+                            <div class="flex gap-3 ">
+                                <div class="p-5 rounded-md">
+                                    <img src=@($"http://localhost:5140/image/product/{cart.ProductImage}")
+                                         class="w-[100px]" />
+                                </div>
+                                <div class="flex flex-col gap-1 p-5 justify-center w-[250px]">
+
+                                    <h2 class="font-semibold text-xl">
+                                        @cart.ProductName
+                                    </h2>
+                                    <p class="font-semibold text-sm"><span class="text-gray-600">Price: </span>Php. @cart.Price .00</p>
+
+                                </div>
                             </div>
-                            <div class="flex flex-col gap-1 p-5 justify-center w-[250px]">
 
-                                <h2 class="font-semibold text-xl">
-                                    @cart.ProductName
-                                </h2>
-                                <p class="font-semibold text-sm"><span class="text-gray-600">Price: </span>Php. @cart.Price .00</p>
 
+                            <span class="font-semibold text-xl">@cart.Quantity</span>
+                            <div>
+                                <h1 class="text-gray-600 ">Total: <span class="font-semibold">@($"{cart.Quantity * cart.Price}")</span></h1>
                             </div>
+
+                            <div>
+                                <h1 class="text-gray-600 ">Status: <span class="font-semibold">@(cart.Status)</span></h1>
+                            </div>
+
+                            <button class="font-semibold mt-3 py-2 px-6 rounded-md bg-blue-500 text-white shadow-md" @onclick="() => ToggleModal(cart.ProductId)">
+                                Write a review
+                            </button>
+
                         </div>
-
-
-                        <span class="font-semibold text-xl">@cart.Quantity</span>
-                        <div>
-                            <h1 class="text-gray-600 ">Total: <span class="font-semibold">@($"{cart.Quantity * cart.Price}")</span></h1>
-                        </div>
-
-                        <div>
-                            <h1 class="text-gray-600 ">Status: <span class="font-semibold">@(cart.Status)</span></h1>
-                        </div>
-
-                        <button class="font-semibold mt-3 py-2 px-6 rounded-md bg-blue-500 text-white shadow-md" @onclick="() => ToggleModal(cart.ProductId)">
-                            Write a review
-                        </button>
-
-                    </div>
-                }
+                    }
+                </div>
             </div>
         </div>
-    </div>
     }
 
    

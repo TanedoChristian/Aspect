@@ -7,6 +7,7 @@ using System.Xml.Linq;
 using CurrieTechnologies.Razor.SweetAlert2;
 using AspectUI.Services.CartService;
 using Blazored.LocalStorage;
+using AspectUI.Services.ReviewService;
 
 namespace AspectUI.Pages
 {
@@ -35,7 +36,15 @@ namespace AspectUI.Pages
         [Inject]
         public ICartService _cartService { get; set; }
 
+        [Inject]
+        NavigationManager NavigationManager { get; set; }
+
+        [Inject]
+        IReviewService reviewService { get; set; }
+
+        IEnumerable<ProductReview> ProductReviews { get; set; }
         
+
 
         public bool ShowReviewModal = false;
 
@@ -52,6 +61,10 @@ namespace AspectUI.Pages
         private async Task LoadProduct(int id)
         {
             Product = await _productService.GetById(id);
+
+            ProductReviews = await reviewService.GetAllByProduct(Product.Id);
+            
+
             MainImage = Product.Photos[0].PhotoUrl;
 
         }
@@ -97,7 +110,6 @@ namespace AspectUI.Pages
                 {
                     Quantity--;
                 }
-                
 
                
             }
@@ -113,30 +125,45 @@ namespace AspectUI.Pages
         protected async Task AddToCart()
         {
 
-            await Swal.FireAsync(new SweetAlertOptions
+            string type = await localStorageService.GetItemAsync<string>("type");
+
+            if (type == null)
             {
-                Title = "Product Added",
-                Icon = SweetAlertIcon.Success,
-            });
-
-
-
-
-            var cart = new Cart()
+                NavigationManager.NavigateTo("/login");
+            } else
             {
-                ProductId = Product.Id,
-                ProductName = Product.Name,
-                Price = Product.Price,
-                Quantity = Quantity,
-                Status = "pending",
-                Size = SelectedOption,
-                UserId = await localStorageService.GetItemAsync<int>("userid"),
-                ProductImage = Product.Photos[0].PhotoUrl
-        };
+                await Swal.FireAsync(new SweetAlertOptions
+                {
+                    Title = "Product Added",
+                    Icon = SweetAlertIcon.Success,
+                });
 
 
-            await _cartService.Create(cart);
+
+                Product.Quantity = Product.Quantity - Quantity;
+                Console.WriteLine(Product.Quantity);
+                await _productService.Update(Product);
+
+
+
+                var cart = new Cart()
+                {
+                    ProductId = Product.Id,
+                    ProductName = Product.Name,
+                    Price = Product.Price,
+                    Quantity = Quantity,
+                    Status = "pending",
+                    Size = SelectedOption,
+                    UserId = await localStorageService.GetItemAsync<int>("userid"),
+                    ProductImage = Product.Photos[0].PhotoUrl
+                };
+
+
+                await _cartService.Create(cart);
+            }
         }
+
+           
 
 
     }

@@ -1,5 +1,6 @@
 ﻿using AspectUI.Models;
 using AspectUI.Services.CartService;
+using AspectUI.Services.ProductService;
 using Blazored.LocalStorage;
 using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Components;
@@ -22,7 +23,11 @@ namespace AspectUI.Components
         [Parameter]
         public string Name { get; set; }
 
-    
+
+        [Inject]
+        IProductService productService {  get; set; }
+
+        public Product Product {  get; set; }
 
         [Parameter]
         public string Category { get; set; }
@@ -37,6 +42,9 @@ namespace AspectUI.Components
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         [Parameter]
         public List<ProductPhoto> Photos { get; set; } = new();
+
+        [Inject]
+        NavigationManager NavigationManager { get; set; }
 
 
         public Cart Cart { get; set; }
@@ -56,29 +64,43 @@ namespace AspectUI.Components
         protected async Task AddToCart()
         {
 
-            await Swal.FireAsync(new SweetAlertOptions
+            string type = await localStorageService.GetItemAsync<string>("type");
+
+            if(type == null)
             {
-                Title = "Product Added",
-                Icon = SweetAlertIcon.Success,
-            });
-
-
-
-
-            var cart = new Cart()
+                NavigationManager.NavigateTo("/login");
+            } else
             {
-                ProductId = Id,
-                ProductName = Name,
-                Price = Price,
-                Status = "pending",
-                Quantity = 1,
-                Size = "XS",
-                UserId = await localStorageService.GetItemAsync<int>("userid"),
-                ProductImage = Photos[0].PhotoUrl
-            };
+                await Swal.FireAsync(new SweetAlertOptions
+                {
+                    Title = "Product Added",
+                    Icon = SweetAlertIcon.Success,
+                });
 
 
-            await _cartService.Create(cart);
+                Product = await productService.GetById(Id);
+                Product.Quantity--;
+
+                await productService.Update(Product);
+
+                var cart = new Cart()
+                {
+                    ProductId = Id,
+                    ProductName = Name,
+                    Price = Price,
+                    Status = "pending",
+                    Quantity = 1,
+                    Size = "XS",
+                    UserId = await localStorageService.GetItemAsync<int>("userid"),
+                    ProductImage = Photos[0].PhotoUrl
+                };
+
+
+                await _cartService.Create(cart);
+            }
+
+
+         
         }
     }
 }

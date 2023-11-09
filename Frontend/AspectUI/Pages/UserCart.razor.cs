@@ -1,6 +1,7 @@
 ﻿using AspectUI.Models;
 using AspectUI.Services.CartService;
 using AspectUI.Services.OrderService;
+using AspectUI.Services.ProductService;
 using AspectUI.Services.UserService;
 using Blazored.LocalStorage;
 using CurrieTechnologies.Razor.SweetAlert2;
@@ -13,14 +14,18 @@ namespace AspectUI.Pages
         [Inject]
         private ICartService _cartService { get; set; }
 
-        [Inject]
+		[Inject]
+		private IProductService _productService { get; set; }
+
+		[Inject]
 
         private SweetAlertService Swal { get; set; } 
 
         public IEnumerable<Cart> Carts { get; set; }
 
         public Cart Cart { get; set; }
-        public static decimal SubTotal {get; set;}
+		public Product Product { get; set; }
+		public static decimal SubTotal {get; set;}
 
         public string SelectedSize { get; set; }
 
@@ -38,6 +43,9 @@ namespace AspectUI.Pages
         IOrderService orderService  {get; set; }
 
         public UserPayment UserPayment { get; set; } = new UserPayment();
+
+        [Inject]
+        NavigationManager NavigationManager { get; set; }
 
 
 
@@ -59,6 +67,14 @@ namespace AspectUI.Pages
 
         private async Task DeleteCart(int id)
         {
+            Cart = await _cartService.GetById(id);
+
+            Product = await _productService.GetById(Cart.ProductId);
+            Product.Quantity = Product.Quantity + Cart.Quantity;
+            await _productService.Update(Product);
+
+
+
             await _cartService.Delete(id);
             await LoadCartAsync();
         }
@@ -81,15 +97,45 @@ namespace AspectUI.Pages
             }
 
 
-            await _cartService.Update(cart);
+			
+
+            
+
+		
+			await _cartService.Update(cart);
             await LoadCartAsync();
         }
 
         private async Task IncrementQuantity(Cart cart)
         {
             cart.UserId =  await localStorageService.GetItemAsync<int>("userid"); ;
-            cart.Quantity++;
-            await _cartService.Update(cart);
+           
+
+
+
+			
+			Product = await _productService.GetById(cart.ProductId);
+            Product.Quantity--;
+
+
+			if (Product.Quantity < 0)
+			{
+				await Swal.FireAsync(new SweetAlertOptions
+				{
+					Title = "Out of stock",
+					Icon = SweetAlertIcon.Info,
+				});
+
+				Product.Quantity = 0;
+			} else
+            {
+				cart.Quantity++;
+			}
+
+
+			await _productService.Update(Product);
+
+			await _cartService.Update(cart);
             await LoadCartAsync();
         }
 
@@ -114,6 +160,8 @@ namespace AspectUI.Pages
                 Title = "Success",
                 Icon = SweetAlertIcon.Success,
             });
+
+            NavigationManager.NavigateTo("/orders");
 
 
         }

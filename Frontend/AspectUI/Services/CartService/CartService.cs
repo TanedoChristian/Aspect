@@ -40,10 +40,10 @@ namespace AspectUI.Services.CartService
             return JsonSerializer.Deserialize<IEnumerable<Cart>>(await _client.GetStreamAsync($"api/cart"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
 
-        public Task<Cart> GetById(int id)
+        public async Task<Cart> GetById(int id)
         {
-            throw new NotImplementedException();
-        }
+			return JsonSerializer.Deserialize<Cart>(await _client.GetStreamAsync($"api/cart/{id}"), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+		}
 
         public async Task Update(Cart entity)
         {
