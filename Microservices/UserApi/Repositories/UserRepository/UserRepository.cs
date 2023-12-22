@@ -29,7 +29,7 @@ namespace UserApi.Repositories.UserRepository
                              autoDelete: false,
                              arguments: null);
 
-        string messageBody = $"{{\"to\":\"{entity.Email}\",\"subject\":\"Hello from .NET\",\"text\":\"This is a test email from .NET!\"}}";
+        string messageBody = $"{{\"to\":\"{entity.Email}\",\"subject\":\"Thank you for choosing Aspect\",\"text\":\"Aspect\"}}";
         var body = Encoding.UTF8.GetBytes(messageBody);
 
         channel.BasicPublish(exchange: "",
